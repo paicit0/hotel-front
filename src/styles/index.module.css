@@ -10,15 +10,13 @@
     color: black;
   }
 
-  .sidebarContainer {
-    flex: 1;
-  }
-
   .searchContainer {
     display: flex;
     flex: 4;
     flex-direction: column;
     align-items: center;
+    /* sideBar width */
+    margin-left: 200px;
     margin-top: 30px;
   }
 
@@ -86,10 +84,6 @@
     flex-direction: column-reverse;
     flex-grow: 1;
     height: 100vh;
-  }
-
-  .sidebarContainer {
-    flex: 1;
   }
 
   .searchContainer {
