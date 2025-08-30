@@ -16,8 +16,8 @@
     flex-direction: column;
     align-items: center;
     /* sideBar width */
-    margin-left: 200px;
-    margin-top: 30px;
+    margin-left: 157px;
+    margin-top: 43px;
   }
 
   .searchbarContainer {
@@ -32,15 +32,15 @@
   }
 
   .categoryButton {
-    width: 50px;
-    height: 50px;
+    width: 58px;
+    height: 85px;
     border: none;
     background: none;
     color: grey;
   }
   .categoryButtonSelected {
-    width: 50px;
-    height: 50px;
+    width: 58px;
+    height: 85px;
     border: none;
     background: none;
     color: black;
@@ -50,29 +50,95 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50px;
-    height: 50px;
+    width: 58px;
+    height: 58px;
     border-radius: 100%;
-    background: #3835de;
+    background: #2d3ddf;
   }
 
-  .inputDate {
-    width: 300px;
+  .armeIconWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+  }
+
+  .inputLocation {
+    width: 692px;
+    height: 62px;
+    margin-bottom: 14px;
+    border: 1px solid #2d3ddf;
+    border-radius: 4px;
+    color: black;
+    background-color: white;
+  }
+
+  .inputStartDate {
+    width: 346px;
+    height: 62px;
+    margin-bottom: 14px;
+    border: 1px solid #bec3ff;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    background-color: #f2f3ff;
+    color: black;
+  }
+  .inputEndDate {
+    width: 346px;
+    height: 62px;
+    margin-bottom: 14px;
+    border: 1px solid #bec3ff;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background-color: #f2f3ff;
+    color: black;
+  }
+  .inputPeople {
+    width: 692px;
+    height: 62px;
+    margin-bottom: 32px;
+    border: 1px solid #bec3ff;
+    border-radius: 8px;
+    background-color: #f2f3ff;
+  }
+
+  .searchButton {
+    width: 256px;
+    height: 68px;
+    border: 1px solid #2d3ddf;
+    margin-bottom: 42px;
+    color: #ffffff;
+    font-size: 22px;
+    font-family: poppins;
+    font-weight: 500;
+    line-height: 100%;
+
+    background-color: #2d3ddf;
   }
 
   .hotelRecentSearchCard {
     display: flex;
+    width: 692.39px;
+    height: 173x;
   }
 
   .bookNowButton {
+    width: 64px;
+    height: 173px;
     transform-origin: 0 0;
     transform: rotate(90deg);
   }
 
   .imgContainer {
     flex: 5;
-    overflow: auto;
-    background: red;
+    /* overflow: auto; */
+  }
+
+  .takeTourButton {
+    width: 179px;
+    height: 64px;
+    border: 10px solid #ffffff59 35%;
   }
 }
 

@@ -24,10 +24,14 @@ export default function Home() {
         </div>
         <div
           style={{
+            width: "505px",
+            height: "57px",
+            marginBottom: "26px",
             color: "blue",
             fontWeight: "500",
-            fontSize: 30,
+            fontSize: 38,
             flexFlow: "1",
+            fontFamily: "Poppins",
           }}
         >
           What Are You Looking For?
@@ -48,12 +52,11 @@ export default function Home() {
                   : undefined
               }
             >
-              {/* Icon */}
               <img
-                src="/searchIcon.png"
-                alt="searchIcon"
-                width={20}
-                height={20}
+                src="/hotel_icon.png"
+                alt="hotel_icon"
+                width={36}
+                height={24}
               />
             </div>
             <div>Hotel</div>
@@ -74,7 +77,12 @@ export default function Home() {
                   : undefined
               }
             >
-              Icon
+              <img
+                src="/flight_icon.png"
+                alt="flight_icon"
+                width={36}
+                height={36}
+              />
             </div>
             <div>Flight</div>
           </button>
@@ -94,12 +102,13 @@ export default function Home() {
                   : undefined
               }
             >
-              Icon
+              <img src="/car_icon.png" alt="car_icon" width={36} height={36} />
             </div>
             <div>Car</div>
           </button>
         </div>
         <input
+          className={styles.inputLocation}
           type="text"
           value={location}
           onChange={(e) => setLocation(e.target.value)}
@@ -107,14 +116,14 @@ export default function Home() {
         />
         <div>
           <input
-            className={styles.inputDate}
+            className={styles.inputStartDate}
             onClick={(e) => e.currentTarget.showPicker()}
             type="date"
             id="startDate"
             name="startDate"
           />
           <input
-            className={styles.inputDate}
+            className={styles.inputEndDate}
             onClick={(e) => e.currentTarget.showPicker()}
             type="date"
             id="endDate"
@@ -122,26 +131,76 @@ export default function Home() {
             placeholder="Select a start date"
           />
         </div>
-        <div> 2 adult, 1 children - 1 room</div>
-        <div>
-          <button onClick={handleSearch}>Search</button>
-        </div>
+        <div className={styles.inputPeople}> 2 adult, 1 children - 1 room</div>
+        <button className={styles.searchButton} onClick={handleSearch}>
+          Search
+        </button>
         <div>Recent Searches</div>
         <div className={styles.hotelRecentSearchCard}>
           <div>hotel_img</div>
-          <div>
-            <div>Hotel AAA</div>
+          <div style={{ marginLeft: "32px", marginRight: "121.39px" }}>
+            <div style={{ fontFamily: "Poppins" }}>Hotel_Name</div>
             <div>⭐⭐⭐⭐⭐</div>
 
-            <div>
+            <div style={{ display: "flex", flexDirection: "row" }}>
               <div>⭐0.0</div>
-              <div>0000 Reviews</div>
+              <div
+                style={{
+                  fontSize: "14px",
+                  color: "#A8A8A8",
+                  fontFamily: "Poppins",
+                  fontWeight: "200",
+                }}
+              >
+                0000 Reviews
+              </div>
             </div>
-            <div>Amenities</div>
-            <div>
-              <div>Icons</div>
-              <div>Icons</div>
-              <div>Icons</div>
+            <div
+              style={{
+                fontSize: "14px",
+                color: "#A8A8A8",
+                fontFamily: "Poppins",
+                fontWeight: "200",
+              }}
+            >
+              Amenities
+            </div>
+            <div style={{ display: "flex", flexDirection: "row", gap: "20px" }}>
+              <div className={styles.armeIconWrapper}>
+                <img
+                  src="/arme_parking.png"
+                  alt="Parking"
+                  width={16.43}
+                  height={11.64}
+                />
+              </div>
+              <div className={styles.armeIconWrapper}>
+                <img src="/arme_bath.png" alt="Bath" width={17.6} height={16} />
+              </div>
+              <div className={styles.armeIconWrapper}>
+                <img
+                  src="/arme_bar.png"
+                  alt="Bar"
+                  width={12.22}
+                  height={16.16}
+                />
+              </div>
+              <div className={styles.armeIconWrapper}>
+                <img
+                  src="/arme_wifi.png"
+                  alt="Wifi"
+                  width={13.16}
+                  height={9.93}
+                />
+              </div>
+              <div className={styles.armeIconWrapper}>
+                <img
+                  src="/arme_gym.png"
+                  alt="Gym"
+                  width={16.65}
+                  height={9.36}
+                />
+              </div>
             </div>
             <div>0,000/night</div>
           </div>
@@ -151,13 +210,32 @@ export default function Home() {
         </div>
       </div>
 
-      <img
-        className={styles.imgContainer}
-        src="/d1.png"
-        alt="India"
-        width="100%"
-        height="100%"
-      />
+      <div className={styles.imgContainer}>
+        <img
+          src="/explore_india.png"
+          alt="India"
+          width="982.58px"
+          height="100%"
+        />
+        <div
+          style={{ fontFamily: "Poppins", fontSize: "63px", color: "black" }}
+        >
+          Incredible India
+        </div>
+        <div
+          style={{ fontFamily: "Poppins", fontSize: "33px", color: "black" }}
+        >
+          “For where thy treasure is, <br />
+          there also will thy heart be.”
+        </div>
+        <button className={styles.takeTourButton}>
+          <div
+            style={{ fontFamily: "Poppins", fontWeight: 600, fontSize: "20px" }}
+          >
+            Take Tour
+          </div>
+        </button>
+      </div>
     </div>
   );
 }

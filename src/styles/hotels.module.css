@@ -1,0 +1,20 @@
+/* desktop */
+@media (min-width: 768px) {
+  .hotelsContainerStyles {
+    display: flex;
+    justify-content: space-between;
+    overflow: auto;
+    flex-direction: row;
+    flex-grow: 1;
+    height: 100vh;
+    margin-left: 20px;
+    background-color: white;
+    color: black;
+  }
+}
+
+
+/* mobile */
+@media (max-width: 767px) {
+
+}

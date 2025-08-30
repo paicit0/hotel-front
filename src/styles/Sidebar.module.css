@@ -6,9 +6,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 90px;
+    gap: 72px;
     height: 100vh;
-    width: 200px;
+    width: 157px;
     background-color: #3835de;
     overflow-x: hidden;
     padding-top: 20px;
@@ -16,18 +16,18 @@
     border-bottom-right-radius: 35px;
   }
   .sidebarButton {
-    width: 60px;
-    height: 60px;
+    width: 68px;
+    height: 68px;
     border: none;
     background: none;
     color: white;
   }
   .sidebarButtonSelected {
-    width: 60px;
-    height: 60px;
+    width: 68px;
+    height: 68px;
     border: none;
     border-radius: 100%;
-    background: white;
+    background: #EFEEEE;
     color: #3835de;
   }
   .sidebarButton:hover {
