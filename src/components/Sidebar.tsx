@@ -31,8 +31,8 @@ export default function Sidebar() {
           <img
             src={selected === "Explore" ? "/home_icon.png" : "/home_icon.png"}
             alt="home_icon"
-            width={16}
-            height={16}
+            width={19}
+            height={21}
           />
           <div>Home</div>
         </button>
@@ -52,8 +52,8 @@ export default function Sidebar() {
               selected === "Explore" ? "/search_icon.png" : "/search_icon.png"
             }
             alt="search_icon"
-            width={16}
-            height={16}
+            width={18}
+            height={18}
           />
           <div>Explore</div>
         </button>
@@ -68,8 +68,8 @@ export default function Sidebar() {
           <img
             src={selected === "Explore" ? "/trips_icon.png" : "/trips_icon.png"}
             alt="trips_icon"
-            width={16}
-            height={16}
+            width={21}
+            height={18}
           />
           <div>Trips</div>
         </button>
@@ -87,7 +87,7 @@ export default function Sidebar() {
             }
             alt="profile_icon"
             width={16}
-            height={16}
+            height={18}
           />
           <div>Profile</div>
         </button>
