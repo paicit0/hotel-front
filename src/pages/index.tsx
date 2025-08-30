@@ -1,10 +1,11 @@
 // yarn dev
 
-import React from "react";
+import { useState } from "react";
 import styles from "../styles/index.module.css";
 import Sidebar from "../components/Sidebar";
 import Searchbar from "../components/Searchbar";
 export default function Home() {
+  const [category, setCategory] = useState("Hotel");
   return (
     <div className={styles.container}>
       <div className={styles.sidebarContainer}>
@@ -15,17 +16,66 @@ export default function Home() {
         <div className={styles.searchbarContainer}>
           <Searchbar />
         </div>
-        <div>
-          <button>
-            <div>Icon</div>
+        <div style={{color:"blue", fontWeight:'500', fontSize:30, flexFlow:'1'}}>What Are You Looking For?</div>
+        <div className={styles.categoryButtonContainer}>
+          <button
+            className={
+              category === "Hotel"
+                ? styles.categoryButtonSelected
+                : styles.categoryButton
+            }
+            onClick={() => setCategory("Hotel")}
+          >
+            <div
+              className={
+                category === "Hotel"
+                  ? styles.categoryButtonIconWrapper
+                  : undefined
+              }
+            >
+              {/* Icon */}
+              <img src="/searchIcon.png" alt="searchIcon" width={20} height={20} />
+            </div>
             <div>Hotel</div>
           </button>
-          <button>
-            <div>Icon</div>
+
+          <button
+            className={
+              category === "Flight"
+                ? styles.categoryButtonSelected
+                : styles.categoryButton
+            }
+            onClick={() => setCategory("Flight")}
+          >
+            <div
+              className={
+                category === "Flight"
+                  ? styles.categoryButtonIconWrapper
+                  : undefined
+              }
+            >
+              Icon
+            </div>
             <div>Flight</div>
           </button>
-          <button>
-            <div>Icon</div>
+
+          <button
+            className={
+              category === "Car"
+                ? styles.categoryButtonSelected
+                : styles.categoryButton
+            }
+            onClick={() => setCategory("Car")}
+          >
+            <div
+              className={
+                category === "Car"
+                  ? styles.categoryButtonIconWrapper
+                  : undefined
+              }
+            >
+              Icon
+            </div>
             <div>Car</div>
           </button>
         </div>
@@ -78,7 +128,13 @@ export default function Home() {
         </div>
       </div>
 
-      <div className={styles.imgContainer}>IMG</div>
+      <img
+        className={styles.imgContainer}
+        src="/d1.png"
+        alt="India"
+        width="100%"
+        height="100%"
+      />
     </div>
   );
 }
