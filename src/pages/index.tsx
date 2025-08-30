@@ -2,21 +2,36 @@
 
 import { useState } from "react";
 import styles from "../styles/index.module.css";
-import Sidebar from "../components/Sidebar";
 import Searchbar from "../components/Searchbar";
+import { useRouter } from "next/router";
 export default function Home() {
   const [category, setCategory] = useState("Hotel");
+  const [location, setLocation] = useState("");
+  const router = useRouter();
+
+  const handleSearch = () => {
+    router.push({
+      pathname: "/hotels",
+      query: { location: location },
+    });
+  };
+
   return (
     <div className={styles.container}>
-      <div className={styles.sidebarContainer}>
-        <Sidebar />
-      </div>
-
       <div className={styles.searchContainer}>
         <div className={styles.searchbarContainer}>
           <Searchbar />
         </div>
-        <div style={{color:"blue", fontWeight:'500', fontSize:30, flexFlow:'1'}}>What Are You Looking For?</div>
+        <div
+          style={{
+            color: "blue",
+            fontWeight: "500",
+            fontSize: 30,
+            flexFlow: "1",
+          }}
+        >
+          What Are You Looking For?
+        </div>
         <div className={styles.categoryButtonContainer}>
           <button
             className={
@@ -34,7 +49,12 @@ export default function Home() {
               }
             >
               {/* Icon */}
-              <img src="/searchIcon.png" alt="searchIcon" width={20} height={20} />
+              <img
+                src="/searchIcon.png"
+                alt="searchIcon"
+                width={20}
+                height={20}
+              />
             </div>
             <div>Hotel</div>
           </button>
@@ -79,11 +99,12 @@ export default function Home() {
             <div>Car</div>
           </button>
         </div>
-        <select name="locations" id="locations">
-          <option value="Pattaya">Pattaya</option>
-          <option value="Khon Kaen">Khon Kaen</option>
-          <option value="Bangkok">Bangkok</option>
-        </select>
+        <input
+          type="text"
+          value={location}
+          onChange={(e) => setLocation(e.target.value)}
+          placeholder="Pattaya"
+        />
         <div>
           <input
             className={styles.inputDate}
@@ -102,7 +123,9 @@ export default function Home() {
           />
         </div>
         <div> 2 adult, 1 children - 1 room</div>
-        <button>Search</button>
+        <div>
+          <button onClick={handleSearch}>Search</button>
+        </div>
         <div>Recent Searches</div>
         <div className={styles.hotelRecentSearchCard}>
           <div>hotel_img</div>
