@@ -15,16 +15,47 @@
   }
 
   .searchContainer {
-    flex: 4;
     display: flex;
+    flex: 4;
     flex-direction: column;
     align-items: center;
     margin-top: 30px;
-    /* margin-left: 36px; */
   }
 
   .searchbarContainer {
     margin-bottom: 30px;
+  }
+
+  .categoryButtonContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    margin-bottom: 30px;
+  }
+
+  .categoryButton {
+    width: 50px;
+    height: 50px;
+    border: none;
+    background: none;
+    color: grey;
+  }
+  .categoryButtonSelected {
+    width: 50px;
+    height: 50px;
+    border: none;
+    background: none;
+    color: black;
+  }
+
+  .categoryButtonIconWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background: #3835de;
   }
 
   .inputDate {
