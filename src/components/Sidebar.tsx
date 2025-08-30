@@ -25,7 +25,7 @@ export default function Sidebar() {
               : styles.sidebarButton
           }
         >
-          <div>icon</div>
+          <img src="/searchIcon.png" alt="searchIcon" width={17} height={17} />
           <div>Explore</div>
         </button>
         <button
