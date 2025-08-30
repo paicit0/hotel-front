@@ -1,12 +1,49 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Searchbar from "../components/Searchbar";
 import styles from "../styles/hotels.module.css";
+import router from "next/router";
+
+type Hotel = {
+  hotel_id: number;
+  hotel_name: string;
+  hotel_location: string;
+  hotel_review_stars: number;
+  hotel_room_types: [];
+};
 
 export default function Hotels() {
+  const [hotelsData, setHotelsData] = useState<Hotel[]>([]);
   const searchParams = useSearchParams();
-  const location = searchParams.get("location");
-  useEffect(() => {}, []);
+  const location: string = searchParams.get("location") ?? "";
+
+  useEffect(() => {
+    console.log("Location from query params:", location);
+    const url = "http://localhost:8080/search";
+    const fetchHotels = async () => {
+      try {
+        const response = await fetch(
+          `${url}?location=${encodeURIComponent(location)}`
+        );
+        if (!response.ok) {
+          throw new Error(`Response status: ${response.status}`);
+        }
+        const result = await response.json();
+        setHotelsData(result);
+      } catch (error: any) {
+        console.error(error.message);
+      }
+    };
+    fetchHotels();
+  }, []);
+
+  useEffect(() => {
+    console.log("Updated state:", hotelsData);
+  }, [hotelsData]);
+
+  const handleHotelClick = (hotel_id: number) => {
+    router.push(`/hotel/${hotel_id}/page`);
+  };
 
   return (
     <>
@@ -19,7 +56,7 @@ export default function Hotels() {
               justifyContent: "space-between",
             }}
           >
-            <button style={{marginRight:'20px'}}>BACKICON</button>
+            <button style={{ marginRight: "20px" }}>BACKICON</button>
             <Searchbar />
           </div>
 
@@ -33,6 +70,17 @@ export default function Hotels() {
             <div>Best places to enjoy your stay</div>
             <button>Sort By</button>
             <button>Filter</button>
+          </div>
+          <div>
+            {hotelsData.map((hotel) => (
+              <div key={hotel.hotel_id}>
+                <div>{hotel.hotel_name}</div>
+                <div>Price starts from {}</div>
+                <button onClick={() => handleHotelClick(hotel.hotel_id)}>
+                  View Details
+                </button>
+              </div>
+            ))}
           </div>
         </div>
 
