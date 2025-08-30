@@ -7,19 +7,21 @@
     justify-content: center;
     align-items: center;
     gap: 72px;
-    height: 100vh;
+    height: 1080px;
     width: 157px;
     background-color: #3835de;
     overflow-x: hidden;
-    padding-top: 20px;
-    border-top-right-radius: 35px;
-    border-bottom-right-radius: 35px;
+    border-top-right-radius: 38px;
+    border-bottom-right-radius: 38px;
   }
   .sidebarButton {
     width: 68px;
     height: 68px;
     border: none;
     background: none;
+    font-size: 16px;
+    font-family: Poppins;
+    font-weight: 400;
     color: white;
   }
   .sidebarButtonSelected {
@@ -27,7 +29,10 @@
     height: 68px;
     border: none;
     border-radius: 100%;
-    background: #EFEEEE;
+    background: #efeeee;
+    font-size: 16px;
+    font-family: Poppins;
+    font-weight: 400;
     color: #3835de;
   }
   .sidebarButton:hover {
