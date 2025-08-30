@@ -6,3 +6,8 @@
     border: none;
     border-radius: 8px;
 }
+.searchBar::placeholder {
+    font-size: 18px;
+    font-weight: 400;
+    font-family: Poppins;
+}
