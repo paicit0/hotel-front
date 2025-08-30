@@ -128,10 +128,12 @@ export default function Home() {
             type="date"
             id="endDate"
             name="endDate"
-            placeholder="Select a start date"
           />
         </div>
-        <div className={styles.inputPeople}> 2 adult, 1 children - 1 room</div>
+        <button className={styles.inputPeople}>
+          {" "}
+          2 adult, 1 children - 1 room
+        </button>
         <button className={styles.searchButton} onClick={handleSearch}>
           Search
         </button>
@@ -204,8 +206,8 @@ export default function Home() {
             </div>
             <div>0,000/night</div>
           </div>
-          <div className={styles.bookNowButton}>
-            <button>Book Now</button>
+          <div>
+            <button className={styles.bookNowButton}>Book Now</button>
           </div>
         </div>
       </div>
@@ -214,20 +216,37 @@ export default function Home() {
         <img
           src="/explore_india.png"
           alt="India"
-          width="982.58px"
+          width="100%"
           height="100%"
+          // width="982.58px"
+          // height="1080px"
         />
-        <div
-          style={{ fontFamily: "Poppins", fontSize: "63px", color: "black" }}
-        >
-          Incredible India
+        <img
+          style={{ position: "absolute", top: 149.47, left: 420.56 }}
+          src="plane.png"
+        />
+        <div className={styles.takeTourTextContainer}>
+          <div
+            style={{
+              fontFamily: "Poppins",
+              fontSize: "63px",
+              color: "#FFFFFF",
+            }}
+          >
+            Incredible India
+          </div>
+          <div
+            style={{
+              fontFamily: "Poppins",
+              fontSize: "33px",
+              color: "#FFFFFF",
+            }}
+          >
+            “For where thy treasure is, <br />
+            there also will thy heart be.”
+          </div>
         </div>
-        <div
-          style={{ fontFamily: "Poppins", fontSize: "33px", color: "black" }}
-        >
-          “For where thy treasure is, <br />
-          there also will thy heart be.”
-        </div>
+
         <button className={styles.takeTourButton}>
           <div
             style={{ fontFamily: "Poppins", fontWeight: 600, fontSize: "20px" }}
