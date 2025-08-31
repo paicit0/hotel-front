@@ -15,10 +15,19 @@ export default function PaymentDone() {
           width={809}
           height={480}
         />
-        <div style={{ marginBottom: "6px" }}>
+        <div
+          style={{
+            fontWeight: "600",
+            fontSize: "48px",
+            color: "#2D3DDF",
+            marginBottom: "6px",
+          }}
+        >
           Booking Successfully completed
         </div>
-        <div style={{ marginBottom: "49px" }}>
+        <div
+          style={{ fontWeight: "300", fontSize: "20px", marginBottom: "49px" }}
+        >
           Your trip schedule is ready, please check under profile.
         </div>
         <button onClick={() => handleHomeClick()} className={styles.homeButton}>
