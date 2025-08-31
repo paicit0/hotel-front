@@ -4,7 +4,7 @@ import Searchbar from "../components/Searchbar";
 import styles from "../styles/hotels.module.css";
 import router from "next/router";
 
-type Hotel = {
+export type Hotel = {
   hotel_id: number;
   hotel_name: string;
   hotel_location: string;
@@ -72,7 +72,7 @@ export default function Hotels() {
             <button>Filter</button>
           </div>
           <div>
-            {hotelsData.map((hotel) => (
+            {hotelsData.length>0 &&hotelsData.map((hotel) => (
               <div key={hotel.hotel_id}>
                 <div>{hotel.hotel_name}</div>
                 <div>Price starts from {}</div>
