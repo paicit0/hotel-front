@@ -9,8 +9,13 @@ export type Hotel = {
   hotel_name: string;
   hotel_location: string;
   hotel_review_stars: number;
-  hotel_room_types: [];
+  hotel_room_types: roomType[];
 };
+
+type roomType = {
+  room_name: string;
+  room_price: number;
+}
 
 export default function Hotels() {
   const [hotelsData, setHotelsData] = useState<Hotel[]>([]);
@@ -47,16 +52,15 @@ export default function Hotels() {
 
   return (
     <>
-      <div className={styles.hotelsContainerStyles}>
+      <div className={styles.hotelsContainer}>
         <div style={{ marginLeft: "200px" }}>
           <div
             style={{
               display: "flex",
               flexDirection: "row",
-              justifyContent: "space-between",
             }}
           >
-            <button style={{ marginRight: "20px" }}>BACKICON</button>
+            <img src="/back_button.png" alt="Back" width={56} height={56} />
             <Searchbar />
           </div>
 
@@ -72,15 +76,16 @@ export default function Hotels() {
             <button>Filter</button>
           </div>
           <div>
-            {hotelsData.length>0 &&hotelsData.map((hotel) => (
-              <div key={hotel.hotel_id}>
-                <div>{hotel.hotel_name}</div>
-                <div>Price starts from {}</div>
-                <button onClick={() => handleHotelClick(hotel.hotel_id)}>
-                  View Details
-                </button>
-              </div>
-            ))}
+            {hotelsData.length > 0 &&
+              hotelsData.map((hotel) => (
+                <div key={hotel.hotel_id}>
+                  <div>{hotel.hotel_name}</div>
+                  <div>Price starts from {}</div>
+                  <button onClick={() => handleHotelClick(hotel.hotel_id)}>
+                    View Details
+                  </button>
+                </div>
+              ))}
           </div>
         </div>
 
