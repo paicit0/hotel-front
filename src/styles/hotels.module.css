@@ -1,6 +1,6 @@
 /* desktop */
 @media (min-width: 768px) {
-  .hotelsContainerStyles {
+  .hotelsContainer {
     display: flex;
     justify-content: space-between;
     overflow: auto;
