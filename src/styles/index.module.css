@@ -5,7 +5,7 @@
     overflow: auto;
     flex-direction: row;
     flex-grow: 1;
-    height: 100vh;
+    height: 1080px;
     background-color: white;
     color: black;
   }
@@ -124,18 +124,35 @@
   }
 
   .bookNowButton {
-    width: 64px;
-    height: 173px;
+    width: 173px;
+    height: 64px;
+    border: none;
+    border-radius: 4px;
     transform-origin: 0 0;
     transform: rotate(90deg);
+    font-size: 18px;
+    background-color: #2D3DDF;
+    color: #FFFFFF;
   }
 
   .imgContainer {
     flex: 5;
-    /* overflow: auto; */
+    position: relative;
+    display: inline-block;
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+
+  .takeTourTextContainer {
+    position: absolute;
+    top: 650px;
+    left: 70px;
   }
 
   .takeTourButton {
+    position: absolute;
+    top: 885px;
+    left: 70px;
     width: 179px;
     height: 64px;
     border: 10px solid #ffffff59 35%;
@@ -146,26 +163,215 @@
 @media (max-width: 767px) {
   .container {
     display: flex;
-    overflow-y: scroll;
-    flex-direction: column-reverse;
+    overflow-y: auto;
+    flex-direction: column;
     flex-grow: 1;
-    height: 100vh;
+    min-height: 100vh;
+    background-color: white;
+    color: black;
+    padding: 0;
+    margin: 0;
   }
 
   .searchContainer {
-    flex: 4;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 30px;
+    padding: 20px 16px;
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .searchbarContainer {
-    flex: 4;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  .categoryButtonContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 320px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .categoryButton,
+  .categoryButtonSelected {
+    width: 50px;
+    height: 70px;
+    border: none;
+    background: none;
+    color: grey;
+    flex: 1;
+    min-width: 50px;
+  }
+
+  .categoryButtonSelected {
+    color: black;
+  }
+
+  .categoryButtonIconWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background: #2d3ddf;
+    margin: 0 auto;
+  }
+
+  .armeIconWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+  }
+
+  .inputLocation {
+    width: 100%;
+    max-width: 400px;
+    height: 50px;
+    margin-bottom: 12px;
+    border: 1px solid #2d3ddf;
+    border-radius: 4px;
+    color: black;
+    background-color: white;
+    padding: 0 16px;
+    box-sizing: border-box;
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+
+  .dateContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+    gap: 0;
+  }
+
+  .inputStartDate,
+  .inputEndDate {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 12px;
+    border: 1px solid #bec3ff;
+    background-color: #f2f3ff;
+    color: black;
+    padding: 0 16px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+
+  .inputStartDate {
+    border-radius: 8px 8px 0 0;
+    border-bottom: none;
+  }
+
+  .inputEndDate {
+    border-radius: 0 0 8px 8px;
+    border-top: none;
+  }
+
+  .inputPeople {
+    width: 100%;
+    max-width: 400px;
+    height: 50px;
+    margin-bottom: 24px;
+    border: 1px solid #bec3ff;
+    border-radius: 8px;
+    background-color: #f2f3ff;
+    padding: 0 16px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+
+  .searchButton {
+    width: 100%;
+    max-width: 280px;
+    height: 56px;
+    border: 1px solid #2d3ddf;
+    margin-bottom: 24px;
+    color: #ffffff;
+    font-size: 18px;
+    font-family: poppins, sans-serif;
+    font-weight: 500;
+    line-height: 100%;
+    background-color: #2d3ddf;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .hotelRecentSearchCard {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .bookNowButton {
+    width: 100%;
+    max-width: 200px;
+    height: 48px;
+    border: none;
+    border-radius: 4px;
+    transform: none; /* Remove rotation on mobile */
+    font-size: 16px;
+    background-color: #2D3DDF;
+    color: #FFFFFF;
+    margin: 10px auto;
+    cursor: pointer;
   }
 
   .imgContainer {
-    flex: 5;
-    background-color: red;
+    width: 100%;
+    height: 300px;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    order: -1; /* Move image to top on mobile */
+  }
+
+  .takeTourTextContainer {
+    position: absolute;
+    bottom: 80px;
+    left: 20px;
+    right: 20px;
+    color: white;
+    text-align: center;
+  }
+
+  .takeTourButton {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 160px;
+    height: 48px;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  /* Additional responsive utilities */
+  .hidden-mobile {
+    display: none;
+  }
+
+  .visible-mobile {
+    display: block;
   }
 }
