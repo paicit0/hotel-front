@@ -1,0 +1,72 @@
+.paymentDetailsContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.paymentDetailsHeader {
+  display: flex;
+  flex-direction: column;
+  justify-content: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.paymentDetailsContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 283px;
+  width: 100%;
+}
+
+.paymentDetailsButtonsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.paymentDetailsButton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-self: flex-start;
+  border: none;
+  width: fit-content;
+  height: 59px;
+  background-color: white;
+}
+.paymentDetailsButtonSelected {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-self: flex-start;
+  max-width: 605px;
+  width: 605px;
+  max-height: 109px;
+  height: 109px;
+  margin-top: 31px;
+  margin-bottom: 31px;
+  border: 1px solid #2d3ddf;
+  border-radius: 6px;
+  background-color: white;
+}
+
+.paymentSummary {
+  width: 494.19px;
+  height: 195px;
+  /* margin-left: 900px; */
+  margin-right: 400px;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  padding-left: 24px;
+  padding-right: 24px;
+  align-items: flex-end;
+}
+
+.paymentSummaryTextContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
