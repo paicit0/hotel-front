@@ -1,0 +1,120 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 188px;
+  margin-right: 341px;
+}
+
+.headerContainer {
+  display: flex;
+  flex-direction: row;
+  margin-top: 43px;
+  margin-bottom: 34px;
+}
+
+.headerButtonContainer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.dateButton {
+  width: 258.5px;
+  height: 62px;
+}
+
+.searchButton {
+  width: 256px;
+  height: 62px;
+  background-color: #2d3ddf;
+  font-weight: 500;
+  font-size: 22px;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+.hotelInfoContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.hotelPriceBox {
+  text-align: center;
+  align-content: center;
+  width: 318px;
+  height: 52px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #2d3ddf;
+  border: 1px solid #2d3ddf;
+  border-radius: 4px;
+  border-color: #2d3ddf;
+  margin-bottom: 45px;
+}
+.hotelTypeCardContainer {
+  display: flex;
+  width: 692.39px;
+  height: 173x;
+}
+
+.bookNowButton {
+  width: 173px;
+  height: 64px;
+  border: none;
+  border-radius: 4px;
+  transform-origin: 0 0;
+  /* transform: rotate(90deg); */
+  font-size: 18px;
+  background-color: #2d3ddf;
+  color: #ffffff;
+}
+
+.roomTypeContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 0px;
+  margin-bottom: 100px;
+  margin-right: 124px;
+}
+
+.roomInfoContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.reviewContainer {
+  width: 481px;
+  height: 405px;
+}
+
+.reviewHeaderContainer {
+  display: flex;
+  flex-direction: row;
+
+}
+
+.reviewIconContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 30.37px;
+}
+
+.iconWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50.59px;
+  height: 50.59px;
+
+  box-shadow: 0px 4px 6px #000000 19.2%;
+}
+
+.ratingContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
