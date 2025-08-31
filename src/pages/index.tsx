@@ -5,8 +5,8 @@ import styles from "../styles/index.module.css";
 import Searchbar from "../components/Searchbar";
 import { useRouter } from "next/router";
 export default function Home() {
-  const [category, setCategory] = useState("Hotel");
-  const [location, setLocation] = useState("");
+  const [category, setCategory] = useState<string>("Hotel");
+  const [location, setLocation] = useState<string>("");
   const router = useRouter();
 
   const handleSearch = () => {
