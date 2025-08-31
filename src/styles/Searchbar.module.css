@@ -1,5 +1,6 @@
 .searchBar {
-    width: 700px;
+    /* width: 700px; */
+    width: 100%;
     height: 56px;
     color: black;
     background-color: #EBEDFF;
