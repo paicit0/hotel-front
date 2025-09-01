@@ -8,15 +8,13 @@
     height: 1080px;
     background-color: white;
     color: black;
+    margin-left: 189px;
   }
 
   .searchContainer {
     display: flex;
-    flex: 4;
     flex-direction: column;
     align-items: center;
-    /* sideBar width */
-    margin-left: 157px;
     margin-top: 43px;
   }
 
@@ -64,6 +62,12 @@
     height: 30px;
   }
 
+  .inputContainer {
+    display: flex;
+    flex-direction: column;
+    margin-right: 56.03px;
+  }
+
   .inputLocation {
     width: 692px;
     height: 62px;
@@ -73,74 +77,129 @@
     color: black;
     background-color: white;
   }
+  .inputLocation::placeholder {
+    padding-left: 112.92px;
+    color: black;
+    font-size: 18px;
+  }
 
-  .inputStartDate {
-    width: 346px;
-    height: 62px;
-    margin-bottom: 14px;
-    border: 1px solid #bec3ff;
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
-    background-color: #f2f3ff;
-    color: black;
-  }
-  .inputEndDate {
-    width: 346px;
-    height: 62px;
-    margin-bottom: 14px;
-    border: 1px solid #bec3ff;
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
-    background-color: #f2f3ff;
-    color: black;
-  }
-  .inputPeople {
+  .inputDate {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 143px;
     width: 692px;
     height: 62px;
+    padding-left: 107.11px;
+    margin-bottom: 14.5px;
+    border: 1px solid #bec3ff;
+    border-radius: 4px;
+    font-size: 18px;
+    color: black;
+    background-color: #f2f3ff;
+  }
+  .inputPeople {
+    display: flex;
+    justify-content: flex-start;
+    justify-content: space-between;
+    align-items: center;
+    width: 692px;
+    height: 62px;
+    padding-left: 107.11px;
     margin-bottom: 32px;
     border: 1px solid #bec3ff;
     border-radius: 8px;
     background-color: #f2f3ff;
+    font-size: 18px;
   }
 
   .searchButton {
+    align-self: center;
     width: 256px;
     height: 68px;
     border: 1px solid #2d3ddf;
     margin-bottom: 42px;
     color: #ffffff;
     font-size: 22px;
-    font-family: poppins;
     font-weight: 500;
-    line-height: 100%;
-
     background-color: #2d3ddf;
   }
 
-  .hotelRecentSearchCard {
+  .hotelRecentSearchCardContainer {
     display: flex;
+    align-self: flex-start;
+    /* justify-content: space-between; */
     width: 692.39px;
-    height: 173x;
+    height: 173px;
+    border: 1px solid #d1d1d1;
+  }
+
+  .hotelRecentSearchCardMiddle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 85px;
+    margin-left: 32px;
+  }
+
+  .ratingIconWrapper {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .ratingIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 47px;
+    height: 22px;
+    font-size: 12px;
+    color:white;
+    background-color: #ff6969;
+    border-radius: 16px;
+    margin-right: 16px;
+    margin-bottom: 6px;
+  }
+
+  .recentSearchContainer {
+    align-self: flex-start;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 20px;
   }
 
   .bookNowButton {
-    width: 173px;
-    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 64px;
+    height: 173px;
     border: none;
     border-radius: 4px;
-    transform-origin: 0 0;
-    transform: rotate(90deg);
+    background-color: #2d3ddf;
+    color: #ffffff;
+  }
+
+  .bookNowButtonTextContainer {
+    white-space: nowrap;
     font-size: 18px;
-    background-color: #2D3DDF;
-    color: #FFFFFF;
+    transform: rotate(90deg);
   }
 
   .imgContainer {
-    flex: 5;
+    /* flex: 5; */
     position: relative;
     display: inline-block;
     overflow-x: hidden;
     overflow-y: hidden;
+  }
+
+  .mainImage {
+    width: 982.58px;
+    /* width: 100%; */
+    height: 1080px;
+
+    background-image: url("/gradient.png"), url("/explore_india.png");
   }
 
   .takeTourTextContainer {
@@ -149,13 +208,29 @@
     left: 70px;
   }
 
+  .takeTourButtonContainer {
+    width: 179px;
+    height: 64px;
+    background-color: #ffffff;
+  }
+
   .takeTourButton {
+    display: flex;
+    width: 179px;
+    height: 64px;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     top: 885px;
     left: 70px;
     width: 179px;
     height: 64px;
-    border: 10px solid #ffffff59 35%;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 4px;
+    font-size: 20px;
+    font-weight: 600;
+    background-color: rgba(255, 255, 255, 0.35);
+    color: #ffffff;
   }
 }
 
@@ -183,18 +258,12 @@
     box-sizing: border-box;
   }
 
-  .searchbarContainer {
-    margin-bottom: 20px;
-    width: 100%;
-  }
-
   .categoryButtonContainer {
     display: flex;
     justify-content: space-between;
     width: 100%;
     max-width: 320px;
     margin-bottom: 20px;
-    flex-wrap: wrap;
     gap: 10px;
   }
 
@@ -205,12 +274,7 @@
     border: none;
     background: none;
     color: grey;
-    flex: 1;
     min-width: 50px;
-  }
-
-  .categoryButtonSelected {
-    color: black;
   }
 
   .categoryButtonIconWrapper {
@@ -230,6 +294,8 @@
     justify-content: center;
     width: 25px;
     height: 25px;
+    border: 1px solid #003aa8;
+    box-shadow: 0px 0px 5px black;
   }
 
   .inputLocation {
@@ -306,7 +372,7 @@
     cursor: pointer;
   }
 
-  .hotelRecentSearchCard {
+  .hotelRecentSearchCardContainer {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -318,16 +384,27 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
 
+  .hotelRecentSearchCardMiddle {
+    margin-right: 121.39px;
+  }
+
+  .ratingIconWrapper {
+    width: 47px;
+    height: 22px;
+    background-color: #ff6969;
+    border-radius: 16px;
+  }
+
   .bookNowButton {
     width: 100%;
     max-width: 200px;
     height: 48px;
     border: none;
     border-radius: 4px;
-    transform: none; /* Remove rotation on mobile */
+    transform: none;
     font-size: 16px;
-    background-color: #2D3DDF;
-    color: #FFFFFF;
+    background-color: #2d3ddf;
+    color: #ffffff;
     margin: 10px auto;
     cursor: pointer;
   }
@@ -339,7 +416,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    order: -1; /* Move image to top on mobile */
+    order: -1;
   }
 
   .takeTourTextContainer {
@@ -351,14 +428,12 @@
     text-align: center;
   }
 
-  .takeTourButton {
+  .takeTourButtonContainer {
     position: absolute;
     bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 160px;
-    height: 48px;
-    border: 2px solid rgba(255, 255, 255, 0.8);
+    width: 179px;
+    height: 64px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
     border-radius: 8px;
     background: rgba(255, 255, 255, 0.2);
     color: white;
@@ -366,7 +441,12 @@
     cursor: pointer;
   }
 
-  /* Additional responsive utilities */
+  .takeTourButton {
+    color: white;
+    font-weight: 600;
+    font-size: 20px;
+  }
+
   .hidden-mobile {
     display: none;
   }

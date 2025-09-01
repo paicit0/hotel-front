@@ -19,19 +19,17 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <div className={styles.searchContainer}>
-        <div className={styles.searchbarContainer}>
-          <Searchbar />
-        </div>
+        <Searchbar marginRight="48.42px" />
         <div
           style={{
+            alignSelf: "flex-start",
             width: "505px",
             height: "57px",
+            marginTop: "62px",
             marginBottom: "26px",
-            color: "blue",
-            fontWeight: "500",
+            color: "#2D3DDF",
+            fontWeight: "600",
             fontSize: 38,
-            flexFlow: "1",
-            fontFamily: "Poppins",
           }}
         >
           What Are You Looking For?
@@ -107,54 +105,67 @@ export default function Home() {
             <div>Car</div>
           </button>
         </div>
-        <input
-          className={styles.inputLocation}
-          type="text"
-          value={location}
-          onChange={(e) => setLocation(e.target.value)}
-          placeholder="Pattaya"
-        />
-        <div>
+
+        <div className={styles.inputContainer}>
           <input
-            className={styles.inputStartDate}
-            onClick={(e) => e.currentTarget.showPicker()}
-            type="date"
-            id="startDate"
-            name="startDate"
+            className={styles.inputLocation}
+            type="text"
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
+            placeholder="Pattaya"
           />
-          <input
-            className={styles.inputEndDate}
-            onClick={(e) => e.currentTarget.showPicker()}
-            type="date"
-            id="endDate"
-            name="endDate"
-          />
+          <button className={styles.inputDate}>
+            <div style={{ marginLeft: "" }}>Thu,20 Dec-2020</div>
+            <div style={{ marginRight: "" }}>Fri,21 Dec-2020</div>
+          </button>
+          <button className={styles.inputPeople}>
+            2 adult, 1 children - 1 room
+          </button>
+          <button className={styles.searchButton} onClick={handleSearch}>
+            Search
+          </button>
         </div>
-        <button className={styles.inputPeople}>
-          {" "}
-          2 adult, 1 children - 1 room
-        </button>
-        <button className={styles.searchButton} onClick={handleSearch}>
-          Search
-        </button>
-        <div>Recent Searches</div>
-        <div className={styles.hotelRecentSearchCard}>
-          <div>hotel_img</div>
-          <div style={{ marginLeft: "32px", marginRight: "121.39px" }}>
-            <div style={{ fontFamily: "Poppins" }}>Hotel_Name</div>
-            <div>⭐⭐⭐⭐⭐</div>
+
+        <div className={styles.recentSearchContainer}>Recent Searches</div>
+        <div className={styles.hotelRecentSearchCardContainer}>
+          <img
+            src="/hotel-pictures/1.png"
+            alt="Parking"
+            width={198}
+            height={173}
+          />
+          <div className={styles.hotelRecentSearchCardMiddle}>
+            <div style={{ fontSize: "18px", fontWeight: "500" }}>
+              Hotel_Name
+            </div>
+            <img
+              style={{ marginBottom: "6px" }}
+              src="/recent_search_rating.png"
+              alt="Parking"
+              width={80}
+              height={12}
+            />
 
             <div style={{ display: "flex", flexDirection: "row" }}>
-              <div>⭐0.0</div>
-              <div
-                style={{
-                  fontSize: "14px",
-                  color: "#A8A8A8",
-                  fontFamily: "Poppins",
-                  fontWeight: "200",
-                }}
-              >
-                0000 Reviews
+              <div className={styles.ratingIconWrapper}>
+                <div className={styles.ratingIcon}>
+                  <img
+                    src="/ratingIcon.png"
+                    alt="Rating"
+                    width={10}
+                    height={10}
+                  />
+                  <div>0.1</div>
+                </div>
+                <div
+                  style={{
+                    fontSize: "14px",
+                    color: "#A8A8A8",
+                    fontWeight: "200",
+                  }}
+                >
+                  0000 Reviews
+                </div>
               </div>
             </div>
             <div
@@ -167,77 +178,45 @@ export default function Home() {
             >
               Amenities
             </div>
-            <div style={{ display: "flex", flexDirection: "row", gap: "20px" }}>
-              <div className={styles.armeIconWrapper}>
-                <img
-                  src="/arme_parking.png"
-                  alt="Parking"
-                  width={16.43}
-                  height={11.64}
-                />
-              </div>
-              <div className={styles.armeIconWrapper}>
-                <img src="/arme_bath.png" alt="Bath" width={17.6} height={16} />
-              </div>
-              <div className={styles.armeIconWrapper}>
-                <img
-                  src="/arme_bar.png"
-                  alt="Bar"
-                  width={12.22}
-                  height={16.16}
-                />
-              </div>
-              <div className={styles.armeIconWrapper}>
-                <img
-                  src="/arme_wifi.png"
-                  alt="Wifi"
-                  width={13.16}
-                  height={9.93}
-                />
-              </div>
-              <div className={styles.armeIconWrapper}>
-                <img
-                  src="/arme_gym.png"
-                  alt="Gym"
-                  width={16.65}
-                  height={9.36}
-                />
-              </div>
-            </div>
+            <img src="amenities.png" width={312} height={63} />
             <div>0,000/night</div>
           </div>
-          <div>
-            <button className={styles.bookNowButton}>Book Now</button>
-          </div>
+
+          <button className={styles.bookNowButton}>
+            <div className={styles.bookNowButtonTextContainer}>Book Now</div>
+          </button>
         </div>
       </div>
 
       <div className={styles.imgContainer}>
+        <div className={styles.mainImage}></div>
         <img
-          src="/explore_india.png"
-          alt="India"
-          width="100%"
-          height="100%"
-          // width="982.58px"
-          // height="1080px"
-        />
-        <img
-          style={{ position: "absolute", top: 149.47, left: 420.56 }}
+          style={{ position: "absolute", top: 149.47, left: 436.56 }}
           src="plane.png"
+          width={71.26}
+          height={64.03}
         />
+        <img
+          style={{ position: "absolute", top: 517, left: 897.94 }}
+          src="next_button.png"
+          width={75}
+          height={75}
+        />
+
         <div className={styles.takeTourTextContainer}>
           <div
             style={{
-              fontFamily: "Poppins",
+              width: "492px",
+              height: "95px",
               fontSize: "63px",
               color: "#FFFFFF",
+              marginBottom: "8px",
             }}
           >
             Incredible India
           </div>
           <div
             style={{
-              fontFamily: "Poppins",
               fontSize: "33px",
               color: "#FFFFFF",
             }}
@@ -247,13 +226,9 @@ export default function Home() {
           </div>
         </div>
 
-        <button className={styles.takeTourButton}>
-          <div
-            style={{ fontFamily: "Poppins", fontWeight: 600, fontSize: "20px" }}
-          >
-            Take Tour
-          </div>
-        </button>
+        {/* <button className={styles.takeTourButtonContainer}> */}
+        <div className={styles.takeTourButton}>Take Tour</div>
+        {/* </button> */}
       </div>
     </div>
   );
