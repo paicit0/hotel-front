@@ -3,7 +3,9 @@ import Searchbar from "../components/Searchbar";
 import styles from "../styles/reviewhotel.module.css";
 export default function ReviewHotel() {
   const router = useRouter();
-  const handleContinue = () => {};
+  const handleContinue = () => {
+    router.push("/payment-details");
+  };
   return (
     <>
       <div className={styles.container}>
