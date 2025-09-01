@@ -10,6 +10,10 @@ export default function HotelPage() {
   const [hotelData, setHotelData] = useState<Hotel[]>([]);
   const [error, setError] = useState<string | null>("");
 
+  const handleBookNow = () => {
+    router.push('/reviewhotel');
+  };
+
   useEffect(() => {
     const url = "http://localhost:8080/getHotelById";
     const fetchHotelById = async () => {
@@ -199,7 +203,12 @@ export default function HotelPage() {
                 <div className={styles.roomInfoContainer}>
                   <div>{room.room_name}</div>
                   <div>{room.room_price} BAHT/night</div>
-                  <button className={styles.bookNowButton}>Book Now</button>
+                  <button
+                    onClick={() => handleBookNow()}
+                    className={styles.bookNowButton}
+                  >
+                    Book Now
+                  </button>
                 </div>
               </div>
             ))}
