@@ -14,16 +14,10 @@ export default function PaymentDetails() {
     <>
       <div className={styles.paymentDetailsContainer}>
         <div className={styles.paymentDetailsHeader}>
-          <button
-            style={{
-              marginLeft: "188px",
-              marginBottom: "73px",
-              marginTop: "43px",
-            }}
-          >
-            GOBACK
+          <button className={styles.backButton}>
+            <img src="/back_button.png" alt="Back" width={56} height={56} />
           </button>
-          <div style={{ marginLeft: "247px", marginBottom: "52px" }}>
+          <div style={{ marginLeft: "247px", marginBottom: "52px", fontWeight:'600', fontSize:'24px' }}>
             Payment Details
           </div>
         </div>
@@ -40,19 +34,22 @@ export default function PaymentDetails() {
                 setSelectedPaymentMethod("debitcard");
               }}
             >
-              <img
-                src="/payment_debitcard.png"
-                alt="Debit Card"
-                width={56}
-                height={56}
-              />
-              <div>Debit Card</div>
+              <div className={styles.iconWayWrapper}>
+                <img
+                  src="/payment_debitcard.png"
+                  alt="Debit Card"
+                  width={56}
+                  height={56}
+                />
+                <div>Debit Card</div>
+              </div>
+
               {selectedPaymentMethod === "debitcard" && (
                 <button
                   onClick={() => handleConfirm()}
-                  style={{ alignSelf: "flex-end" }}
+                  className={styles.confirmButton}
                 >
-                  CONFIRM
+                  <img src="/payment_next.png" />
                 </button>
               )}
             </button>
@@ -66,8 +63,18 @@ export default function PaymentDetails() {
                 setSelectedPaymentMethod("upi");
               }}
             >
-              <img src="/payment_upi.png" alt="UPI" width={56} height={56} />
-              <div>UPI</div>
+              <div className={styles.iconWayWrapper}>
+                <img src="/payment_upi.png" alt="UPI" width={56} height={56} />
+                <div>UPI</div>
+              </div>
+              {selectedPaymentMethod === "upi" && (
+                <button
+                  onClick={() => handleConfirm()}
+                  className={styles.confirmButton}
+                >
+                  <img src="/payment_next.png" />
+                </button>
+              )}
             </button>
             <button
               className={
@@ -79,13 +86,23 @@ export default function PaymentDetails() {
                 setSelectedPaymentMethod("phonepay");
               }}
             >
-              <img
-                src="/payment_phonepay.png"
-                alt="PhonePay"
-                width={56}
-                height={56}
-              />
-              <div>PhonePay</div>
+              <div className={styles.iconWayWrapper}>
+                <img
+                  src="/payment_phonepay.png"
+                  alt="PhonePay"
+                  width={56}
+                  height={56}
+                />
+                <div>PhonePay</div>
+              </div>
+              {selectedPaymentMethod === "phonepay" && (
+                <button
+                  onClick={() => handleConfirm()}
+                  className={styles.confirmButton}
+                >
+                  <img src="/payment_next.png" />
+                </button>
+              )}
             </button>
             <button
               className={
@@ -97,13 +114,23 @@ export default function PaymentDetails() {
                 setSelectedPaymentMethod("netbanking");
               }}
             >
-              <img
-                src="/payment_netbanking.png"
-                alt="Net Banking"
-                width={56}
-                height={56}
-              />
-              <div>Net Banking</div>
+              <div className={styles.iconWayWrapper}>
+                <img
+                  src="/payment_netbanking.png"
+                  alt="Net Banking"
+                  width={56}
+                  height={56}
+                />
+                <div>Net Banking</div>
+              </div>
+              {selectedPaymentMethod === "netbanking" && (
+                <button
+                  onClick={() => handleConfirm()}
+                  className={styles.confirmButton}
+                >
+                  <img src="/payment_next.png" />
+                </button>
+              )}
             </button>
             <button
               className={
@@ -115,13 +142,23 @@ export default function PaymentDetails() {
                 setSelectedPaymentMethod("creditcard");
               }}
             >
-              <img
-                src="/payment_creditcard.png"
-                alt="Credit Card"
-                width={56}
-                height={56}
-              />
-              <div>Credit Card</div>
+              <div className={styles.iconWayWrapper}>
+                <img
+                  src="/payment_creditcard.png"
+                  alt="Credit Card"
+                  width={56}
+                  height={56}
+                />
+                <div>Credit Card</div>
+              </div>
+              {selectedPaymentMethod === "creditcard" && (
+                <button
+                  onClick={() => handleConfirm()}
+                  className={styles.confirmButton}
+                >
+                  <img src="/payment_next.png" />
+                </button>
+              )}
             </button>
           </div>
 
