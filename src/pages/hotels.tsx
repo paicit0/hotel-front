@@ -15,7 +15,7 @@ export type Hotel = {
 type roomType = {
   room_name: string;
   room_price: number;
-}
+};
 
 export default function Hotels() {
   const [hotelsData, setHotelsData] = useState<Hotel[]>([]);
@@ -53,44 +53,37 @@ export default function Hotels() {
   return (
     <>
       <div className={styles.hotelsContainer}>
-        <div style={{ marginLeft: "200px" }}>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-            }}
-          >
+        <div className={styles.headerContainer}>
+          <div className={styles.headerBackSearchContainer}>
             <img src="/back_button.png" alt="Back" width={56} height={56} />
-            <Searchbar />
+            <Searchbar marginLeft="20px" marginRight="341px"/>
           </div>
-
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-between",
-            }}
-          >
+          <div className={styles.headerSortFilter}>
             <div>Best places to enjoy your stay</div>
-            <button>Sort By</button>
-            <button>Filter</button>
-          </div>
-          <div>
-            {hotelsData.length > 0 &&
-              hotelsData.map((hotel) => (
-                <div key={hotel.hotel_id}>
-                  <div>{hotel.hotel_name}</div>
-                  <div>Price starts from {}</div>
-                  <button onClick={() => handleHotelClick(hotel.hotel_id)}>
-                    View Details
-                  </button>
-                </div>
-              ))}
+            <div className={styles.sortButtonContainer}>
+              <button>Sort By</button>
+              <button>Filter</button>
+            </div>
           </div>
         </div>
-
-        <div>
-          <div>Recommended</div>
+        <div className={styles.hotelListContainer}>
+          <div>
+            <div>
+              {hotelsData.length > 0 &&
+                hotelsData.map((hotel) => (
+                  <div key={hotel.hotel_id}>
+                    <div>{hotel.hotel_name}</div>
+                    <div>Price starts from {}</div>
+                    <button onClick={() => handleHotelClick(hotel.hotel_id)}>
+                      View Details
+                    </button>
+                  </div>
+                ))}
+            </div>
+          </div>
+          <div className={styles.recommendedContainer}>
+            <div>Recommended</div>
+          </div>
         </div>
       </div>
     </>

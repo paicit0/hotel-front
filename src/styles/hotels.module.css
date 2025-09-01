@@ -2,19 +2,37 @@
 @media (min-width: 768px) {
   .hotelsContainer {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    overflow: auto;
+    margin-left: 188px;
+    
+  }
+  .headerContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 43px;
+    margin-bottom: 32px;
+
+  }
+  .headerBackSearchContainer {
+    display: flex;
     flex-direction: row;
-    flex-grow: 1;
-    height: 100vh;
-    /* margin-left: 20px; */
-    background-color: white;
-    color: black;
+  }
+  .headerSortFilter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .sortButtonContainer{
+    margin-right: 243px;
+  }
+
+  .hotelListContainer {
+    display: flex;
+    flex-direction: row;
   }
 }
 
-
 /* mobile */
 @media (max-width: 767px) {
-
 }
