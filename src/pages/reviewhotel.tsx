@@ -86,34 +86,21 @@ export default function ReviewHotel() {
   };
 
   const validate = () => {
-    let isValid = true;
-    let newErrors: FormErrors = {};
-    if (!formData.fname) {
-      newErrors.fname = "First Name is required.";
-      isValid = false;
-    }
-    if (!formData.lname) {
-      newErrors.lname = "Last Name is required.";
-      isValid = false;
-    }
-    if (!formData.email) {
-      newErrors.email = "Email address is required.";
-      isValid = false;
-    }
-    if (!formData.mobile) {
-      newErrors.mobile = "Mobile Number is required.";
-      isValid = false;
-    }
+    const newErrors: FormErrors = {};
+    if (!formData.fname) newErrors.fname = "error";
+    if (!formData.lname) newErrors.lname = "error";
+    if (!formData.email) newErrors.email = "error";
+    if (!formData.mobile) newErrors.mobile = "error";
     setErrors(newErrors);
-    return isValid;
+    return Object.keys(newErrors).length === 0;
   };
 
   const handleContinue = () => {
     if (validate()) {
       console.log("Form data:", formData);
-          router.push(
-      `/payment-details?hotel_id=${hotelIdQuery}&hotel_name=${hotelNameQuery}&hotel_location=${hotelLocationQuery}&room_type=${hotelRoomTypeQuery}&check_in=${hotelCheckInQuery}&check_out=${hotelCheckOutQuery}&adult=${hotelAdultQuery}&child=${hotelChildQuery}`
-    );
+      router.push(
+        `/payment-details?hotel_id=${hotelIdQuery}&hotel_name=${hotelNameQuery}&hotel_location=${hotelLocationQuery}&room_type=${hotelRoomTypeQuery}&check_in=${hotelCheckInQuery}&check_out=${hotelCheckOutQuery}&adult=${hotelAdultQuery}&child=${hotelChildQuery}`
+      );
     }
   };
 
@@ -146,10 +133,10 @@ export default function ReviewHotel() {
           <div className={styles.headerButtonContainer}>
             <button className={styles.whereButton}>Where are you going?</button>
             <button className={styles.dateButton}>
-              <div style={{ marginLeft: "32px" }}>
+              <div className={styles.checkInPart}>
                 {formatDate(hotelCheckInQuery?.toString() ?? "")}
               </div>
-              <div style={{ marginRight: "32px" }}>
+              <div className={styles.checkOutPart}>
                 {formatDate(hotelCheckOutQuery?.toString() ?? "")}
               </div>
             </button>
@@ -173,8 +160,12 @@ export default function ReviewHotel() {
                       height={31}
                     />
                   </div>
-                  <div>{hotelLocationQuery}</div>
-                  <div>This hotel is reviewed by global firm</div>
+                  <div className={styles.hotelLocationText}>
+                    {hotelLocationQuery}
+                  </div>
+                  <div className={styles.hotelLocationText}>
+                    This hotel is reviewed by global firm
+                  </div>
                 </div>
                 <div>
                   <img src={"/hotel-pictures/2.png"} width={231} height={105} />
@@ -183,24 +174,28 @@ export default function ReviewHotel() {
 
               <div className={styles.checkContainer}>
                 <div>
-                  <div>CHECK-IN</div>
-                  <div>{hotelCheckInQuery}</div>
-                  <div>10am</div>
+                  <div className={styles.checkText}>Check-in</div>
+                  {/* <div>{hotelCheckInQuery}</div> */}
+                  <div className={styles.checkInfoText}>Sunday 21, Dec</div>
+                  <div className={styles.timeText}>10am</div>
                 </div>
-                <div>1 night</div>
+                <div className={styles.nightBox}>1 night</div>
                 <div>
-                  <div>CHECK-OUT</div>
-                  <div>{hotelCheckOutQuery}</div>
-                  <div>10am</div>
+                  <div className={styles.checkText}>Check-out</div>
+                  {/* <div>{hotelCheckOutQuery}</div> */}
+                  <div className={styles.checkInfoText}>Monday 22, Dec</div>
+                  <div className={styles.timeText}>10am</div>
                 </div>
-                <div>{hotelAdultQuery} Adult - 1 room</div>
+                <div className={styles.checkInfoText}>
+                  {hotelAdultQuery} Adult - 1 room
+                </div>
               </div>
             </div>
 
-            <div>Guest Details</div>
+            <div className={styles.guestDetailsText}>Guest Details</div>
 
             <div className={styles.guestInputContainer}>
-              <div>
+              <div className={styles.guestInput}>
                 <input
                   type="text"
                   id="fname"
@@ -208,8 +203,10 @@ export default function ReviewHotel() {
                   placeholder="First Name"
                   value={formData.fname}
                   onChange={handleChange}
+                  className={`${styles.guestInputField} ${
+                    errors.fname ? styles.errorBorder : ""
+                  }`}
                 />
-                {errors.fname && <p>{errors.fname}</p>}
                 <input
                   type="text"
                   id="lname"
@@ -217,8 +214,10 @@ export default function ReviewHotel() {
                   placeholder="Last Name"
                   value={formData.lname}
                   onChange={handleChange}
+                  className={`${styles.guestInputField} ${
+                    errors.lname ? styles.errorBorder : ""
+                  }`}
                 />
-                {errors.lname && <p>{errors.lname}</p>}
               </div>
               <div>
                 <input
@@ -228,8 +227,10 @@ export default function ReviewHotel() {
                   placeholder="E-mail address"
                   value={formData.email}
                   onChange={handleChange}
+                  className={`${styles.guestInputField} ${
+                    errors.email ? styles.errorBorder : ""
+                  }`}
                 />
-                {errors.email && <p>{errors.email}</p>}
                 <input
                   type="text"
                   id="mobile"
@@ -237,13 +238,15 @@ export default function ReviewHotel() {
                   placeholder="Mobile Number"
                   value={formData.mobile}
                   onChange={handleChange}
+                  className={`${styles.guestInputField} ${
+                    errors.mobile ? styles.errorBorder : ""
+                  }`}
                 />
-                {errors.mobile && <p>{errors.mobile}</p>}
               </div>
             </div>
 
-            <button>Add Guest +</button>
-            <div>Special Request(optional)</div>
+            <button className={styles.addGuestButton}>Add Guest +</button>
+            <div className={styles.requestTest}>Special Request(optional)</div>
 
             <input className={styles.requestInput} type="text" />
             <div>
@@ -305,12 +308,18 @@ export default function ReviewHotel() {
               </div>
             </div>
             <div className={styles.paymentPolicy}>
-              <div>Cancellation Charges</div>
-              <div>Non Refundable</div>
-              <div>Penalty may be charged by the airline & by MMT</div>
-              <div>based on how close to departure date you cancel.</div>
-              <div>View fare rules to know more.</div>
-              <button>VIEW POLICY</button>
+              <div className={styles.cancelText}>Cancellation Charges</div>
+              <div className={styles.refundText}>Non Refundable</div>
+              <div className={styles.ruleText}>
+                Penalty may be charged by the airline & by MMT
+              </div>
+              <div className={styles.ruleText}>
+                based on how close to departure date you cancel.
+              </div>
+              <div className={styles.viewPolicyText}>
+                View fare rules to know more.
+              </div>
+              <button className={styles.viewPolicyButton}>VIEW POLICY</button>
             </div>
           </div>
         </div>

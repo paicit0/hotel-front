@@ -25,14 +25,16 @@
 .reviewBookingContainer {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   width: 956.42px;
   margin-bottom: 32px;
 }
 
 .reviewText {
-  font-weight: 500;
+  font-weight: 600;
   font-size: 24px;
-  color: #221F3C;
+  color: #221f3c;
+  margin-bottom: 8px;
 }
 .nameRatingContainer {
   display: flex;
@@ -40,9 +42,17 @@
 }
 
 .hotelNameText {
+  margin-right: 15.8px;
+  margin-bottom: 4px;
   font-size: 22px;
   font-weight: 600;
-  color: #2D3DDF;
+  color: #2d3ddf;
+}
+
+.hotelLocationText {
+  margin-bottom: 10px;
+  font-size: 20px;
+  opacity: 0.55;
 }
 
 .whereButton {
@@ -50,13 +60,97 @@
   height: 62px;
   background-color: #ffffff;
   border: 1px solid #b5b5b5;
+  border-radius: 4px;
+  font-size: 18px;
 }
 
 .checkContainer {
   display: flex;
   flex-direction: row;
+  justify-content: flex-start;
   margin-bottom: 32px;
-  gap: 20px;
+  margin-left: 32px;
+  gap: 80px;
+}
+
+.checkText {
+  font-size: 16px;
+  opacity: 0.55;
+}
+
+.checkInfoText {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  color: #221f3c;
+  size: 20px;
+  font-weight: 600;
+}
+
+.timeText {
+  font-size: 18px;
+  opacity: 0.55;
+}
+
+.nightBox {
+  display: flex;
+  width: 131px;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  background-color: #b7bcf3;
+  color: #2d3ddf;
+  font-size: 16px;
+}
+
+.guestDetailsText {
+  margin-bottom: 9;
+  color: #221f3c;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.guestInputContainer {
+  display: flex;
+  flex-direction: column;
+  width: 867px;
+  height: 116px;
+}
+
+.guestInput {
+  /* flex-grow: 1; */
+  width: 100%;
+}
+
+.guestInputField {
+  width: 410px;
+  height: 52px;
+  margin-right: 12px;
+  margin-bottom: 12px;
+}
+
+.guestInputField::placeholder {
+  padding-left: 24.4px;
+  padding-top: 15px;
+}
+
+.addGuestButton {
+  border: none;
+  font-size: 18px;
+  font-weight: 600;
+  color: #221f3c;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  margin-left: 20px;
+}
+
+.requestTest {
+  border: none;
+  font-size: 18px;
+  font-weight: 600;
+  color: #221f3c;
+  margin-bottom: 9px;
 }
 
 .dateButton {
@@ -67,13 +161,34 @@
   height: 62px;
   background-color: #ffffff;
   border: 1px solid #b5b5b5;
+  border-radius: 4px;
+  font-size: 18px;
 }
+
+.checkInPart {
+  flex: 1;
+  border-right: 1px solid #b5b5b5;
+  height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkOutPart {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .peopleButton {
   width: 382px;
   height: 62px;
   margin-right: 12px;
   background-color: #ffffff;
   border: 1px solid #b5b5b5;
+  border-radius: 4px;
+  font-size: 18px;
 }
 
 .searchButton {
@@ -130,4 +245,37 @@
   font-weight: 700;
   font-size: 22px;
   /* color: #2d3ddf; */
+}
+
+.cancelText {
+  font-size: 16px;
+  font-weight: 600;
+  color: #221f3c;
+  margin-bottom: 10px;
+}
+
+.refundText {
+  font-size: 16px;
+  font-weight: 600;
+  color: #221f3c;
+  margin-bottom: 26px;
+}
+
+.ruleText {
+  font-size: 16px;
+  opacity: 0.55;
+}
+
+.viewPolicyText {
+  margin-bottom: 26px;
+}
+
+.viewPolicyButton {
+  border: none;
+  font-size: 16px;
+  opacity: 0.55;
+}
+
+.errorBorder {
+  border: 1px solid red;
 }
