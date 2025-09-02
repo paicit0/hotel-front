@@ -13,6 +13,15 @@
     margin-bottom: 34px;
   }
 
+  .backButton {
+    border: none;
+    background-color: transparent;
+    margin-right: 20px;
+  }
+  .backButton:hover {
+    cursor: pointer;
+  }
+
   .headerButtonContainer {
     display: flex;
     gap: 20px;
@@ -42,19 +51,15 @@
   }
 
   .dateButton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 517px;
     height: 62px;
     background-color: #ffffff;
     border: 1px solid #b5b5b5;
     border-radius: 4px;
-  }
-
-  .dateButtonInsideContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
     font-size: 18px;
-    height: 100%;
   }
 
   .checkInPart {

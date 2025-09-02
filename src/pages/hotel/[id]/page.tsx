@@ -10,6 +10,10 @@ export default function HotelPage() {
   const [hotelData, setHotelData] = useState<Hotel[]>([]);
   const [error, setError] = useState<string | null>("");
 
+   const handleBackClick = () => {
+    router.push("/hotels?location=");
+  };
+
   const handleBookNow = (room: string) => {
     const hotelId = hotelData[0].hotel_id;
     const hotelName = hotelData[0].hotel_name;
@@ -72,14 +76,13 @@ export default function HotelPage() {
     <>
       <div className={styles.container}>
         <div className={styles.headerContainer}>
-          <img
-            style={{ marginRight: "20px" }}
-            src="/back_button.png"
-            alt="Back"
-            width={56}
-            height={56}
-          />
-          <Searchbar />
+          <button
+            onClick={() => handleBackClick()}
+            className={styles.backButton}
+          >
+            <img src="/back_button.png" alt="Back" width={56} height={56} />
+          </button>
+          <Searchbar marginRight="67px"/>
         </div>
 
         <div className={styles.headerButtonContainer}>
@@ -90,8 +93,8 @@ export default function HotelPage() {
           </button>
 
           <button className={styles.dateButton}>
-              <div className={styles.checkInPart}>20 Dec,2020</div>
-              <div className={styles.checkOutPart}>21 Dec,2020</div>
+            <div className={styles.checkInPart}>20 Dec,2020</div>
+            <div className={styles.checkOutPart}>21 Dec,2020</div>
           </button>
 
           <button className={styles.peopleButton}>
@@ -117,7 +120,7 @@ export default function HotelPage() {
                     alt={"Explore"}
                     width={408}
                     height={285}
-                    style={{marginBottom:'12px'}}
+                    style={{ marginBottom: "12px" }}
                   />
                   <div className={styles.thirdFourthImgContainer}>
                     <img
@@ -157,8 +160,12 @@ export default function HotelPage() {
                   <div key={index} className={styles.roomTypeContainer}>
                     <img src="/roomtype.png" alt={room.room_name} />
                     <div className={styles.roomInfoContainer}>
-                      <div className={styles.roomNameText}>{room.room_name}</div>
-                      <div className={styles.roomPriceText}>{room.room_price} BAHT/night</div>
+                      <div className={styles.roomNameText}>
+                        {room.room_name}
+                      </div>
+                      <div className={styles.roomPriceText}>
+                        {room.room_price} BAHT/night
+                      </div>
                     </div>
                     <button
                       onClick={() => handleBookNow(room.room_name)}
