@@ -59,16 +59,7 @@ export default function PaymentDetails() {
           <button className={styles.backButton}>
             <img src="/back_button.png" alt="Back" width={56} height={56} />
           </button>
-          <div
-            style={{
-              marginLeft: "247px",
-              marginBottom: "52px",
-              fontWeight: "600",
-              fontSize: "24px",
-            }}
-          >
-            Payment Details
-          </div>
+          <div className={styles.paymentDetailsText}>Payment Details</div>
         </div>
 
         <div className={styles.paymentDetailsContent}>
@@ -83,11 +74,13 @@ export default function PaymentDetails() {
                 setSelectedPaymentMethod("debitcard");
               }}
             >
-              <div           className={
+              <div
+                className={
                   selectedPaymentMethod === "debitcard"
                     ? styles.iconWayWrapperSelected
                     : styles.iconWayWrapper
-                }>
+                }
+              >
                 <img
                   src="/payment_debitcard.png"
                   alt="Debit Card"
@@ -145,11 +138,13 @@ export default function PaymentDetails() {
                 setSelectedPaymentMethod("phonepay");
               }}
             >
-              <div           className={
+              <div
+                className={
                   selectedPaymentMethod === "phonepay"
                     ? styles.iconWayWrapperSelected
                     : styles.iconWayWrapper
-                }>
+                }
+              >
                 <img
                   src="/payment_phonepay.png"
                   alt="PhonePay"
@@ -177,11 +172,13 @@ export default function PaymentDetails() {
                 setSelectedPaymentMethod("netbanking");
               }}
             >
-              <div           className={
+              <div
+                className={
                   selectedPaymentMethod === "netbanking"
                     ? styles.iconWayWrapperSelected
                     : styles.iconWayWrapper
-                }>
+                }
+              >
                 <img
                   src="/payment_netbanking.png"
                   alt="Net Banking"
@@ -209,11 +206,13 @@ export default function PaymentDetails() {
                 setSelectedPaymentMethod("creditcard");
               }}
             >
-              <div           className={
+              <div
+                className={
                   selectedPaymentMethod === "creditcard"
                     ? styles.iconWayWrapperSelected
                     : styles.iconWayWrapper
-                }>
+                }
+              >
                 <img
                   src="/payment_creditcard.png"
                   alt="Credit Card"
