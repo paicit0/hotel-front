@@ -138,12 +138,7 @@ export default function Home() {
           </button>
 
           <button className={styles.inputPeople}>
-            <img
-              src="/people_icon.png"
-              alt="People"
-              width={32}
-              height={32}
-            />
+            <img src="/people_icon.png" alt="People" width={32} height={32} />
             <div>2 adult, 1 children - 1 room</div>
           </button>
 
