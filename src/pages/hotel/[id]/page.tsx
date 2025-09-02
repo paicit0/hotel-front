@@ -10,8 +10,19 @@ export default function HotelPage() {
   const [hotelData, setHotelData] = useState<Hotel[]>([]);
   const [error, setError] = useState<string | null>("");
 
-  const handleBookNow = () => {
-    router.push('/reviewhotel');
+  const handleBookNow = (room: string) => {
+    const hotelId = hotelData[0].hotel_id;
+    const hotelName = hotelData[0].hotel_name;
+    const hotelLocation = hotelData[0].hotel_location;
+    const roomType = room;
+    const checkIn = "20122020";
+    const checkOut = "21122020";
+    const child = "1";
+    const adult = "2";
+
+    router.push(
+      `/reviewhotel?hotel_id=${hotelId}&hotel_name=${hotelName}&hotel_location=${hotelLocation}&room_type=${roomType}&check_in=${checkIn}&check_out=${checkOut}&adult=${adult}&child=${child}`
+    );
   };
 
   useEffect(() => {
@@ -204,7 +215,7 @@ export default function HotelPage() {
                   <div>{room.room_name}</div>
                   <div>{room.room_price} BAHT/night</div>
                   <button
-                    onClick={() => handleBookNow()}
+                    onClick={() => handleBookNow(room.room_name)}
                     className={styles.bookNowButton}
                   >
                     Book Now
