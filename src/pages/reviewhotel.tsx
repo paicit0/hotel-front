@@ -1,11 +1,140 @@
 import { useRouter } from "next/router";
 import Searchbar from "../components/Searchbar";
 import styles from "../styles/reviewhotel.module.css";
+import { useEffect, useState } from "react";
+
+export type PriceDataType = {
+  baseCost: number;
+  discount: number;
+  priceAfterDiscount: number;
+  taxesAndServices: number;
+  totalCost: number;
+};
+
+type FormData = {
+  fname: string;
+  lname: string;
+  email: string;
+  mobile: string;
+};
+
+type Errors = {
+  fname?: string;
+  lname?: string;
+  email?: string;
+  mobile?: string;
+};
+
+type FormErrors = {
+  fname?: string;
+  lname?: string;
+  email?: string;
+  mobile?: string;
+};
+
 export default function ReviewHotel() {
+  const [formData, setFormData] = useState<FormData>({
+    fname: "",
+    lname: "",
+    email: "",
+    mobile: "",
+  });
+  const [errors, setErrors] = useState<Errors>({});
+  const [priceData, setPriceData] = useState<PriceDataType>({
+    baseCost: 0,
+    discount: 0,
+    priceAfterDiscount: 0,
+    taxesAndServices: 0,
+    totalCost: 0,
+  });
+
   const router = useRouter();
-  const handleContinue = () => {
-    router.push("/payment-details");
+  const hotelIdQuery = router.query.hotel_id;
+  const hotelNameQuery = router.query.hotel_name;
+  const hotelLocationQuery = router.query.hotel_location;
+  const hotelRoomTypeQuery = router.query.room_type;
+  const hotelCheckInQuery = router.query.check_in;
+  const hotelCheckOutQuery = router.query.check_out;
+  const hotelAdultQuery = router.query.adult;
+  const hotelChildQuery = router.query.child;
+
+  const params = new URLSearchParams({
+    id: hotelIdQuery as string,
+    room_type: hotelRoomTypeQuery as string,
+    checkInDate: hotelCheckInQuery as string,
+    checkOutDate: hotelCheckOutQuery as string,
+    adult: hotelAdultQuery as string,
+    child: hotelChildQuery as string,
+  });
+
+  useEffect(() => {
+    const fetchCostCalculator = async () => {
+      const url = "http://localhost:8080/costCalculator";
+      try {
+        const response = await fetch(`${url}?${params.toString()}`);
+        const result = await response.json();
+        console.log(result);
+        setPriceData(result);
+      } catch (error) {}
+    };
+    fetchCostCalculator();
+  }, [router.isReady]);
+
+  const handleChange = (e: any) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
+
+  const validate = () => {
+    let isValid = true;
+    let newErrors: FormErrors = {};
+    if (!formData.fname) {
+      newErrors.fname = "First Name is required.";
+      isValid = false;
+    }
+    if (!formData.lname) {
+      newErrors.lname = "Last Name is required.";
+      isValid = false;
+    }
+    if (!formData.email) {
+      newErrors.email = "Email address is required.";
+      isValid = false;
+    }
+    if (!formData.mobile) {
+      newErrors.mobile = "Mobile Number is required.";
+      isValid = false;
+    }
+    setErrors(newErrors);
+    return isValid;
+  };
+
+  const handleContinue = () => {
+    if (validate()) {
+      console.log("Form data:", formData);
+          router.push(
+      `/payment-details?hotel_id=${hotelIdQuery}&hotel_name=${hotelNameQuery}&hotel_location=${hotelLocationQuery}&room_type=${hotelRoomTypeQuery}&check_in=${hotelCheckInQuery}&check_out=${hotelCheckOutQuery}&adult=${hotelAdultQuery}&child=${hotelChildQuery}`
+    );
+    }
+  };
+
+  const formatDate = (dateStr: string) => {
+    const day = dateStr.slice(0, 2);
+    const month = parseInt(dateStr.slice(2, 4), 10) - 1;
+    const year = parseInt(dateStr.slice(4), 10);
+
+    const monthName = new Date(year, month)
+      .toLocaleString("en-US", {
+        month: "short",
+      })
+      .toUpperCase();
+
+    return `${day} ${monthName},${year}`;
+  };
+
+  if (!priceData || !priceData.baseCost) {
+    return <div>Loading cost data...</div>;
+  }
+
   return (
     <>
       <div className={styles.container}>
@@ -17,11 +146,15 @@ export default function ReviewHotel() {
           <div className={styles.headerButtonContainer}>
             <button className={styles.whereButton}>Where are you going?</button>
             <button className={styles.dateButton}>
-              <div style={{ marginLeft: "32px" }}>20 Dec,2020</div>
-              <div style={{ marginRight: "32px" }}>21 Dec,2020</div>
+              <div style={{ marginLeft: "32px" }}>
+                {formatDate(hotelCheckInQuery?.toString() ?? "")}
+              </div>
+              <div style={{ marginRight: "32px" }}>
+                {formatDate(hotelCheckOutQuery?.toString() ?? "")}
+              </div>
             </button>
             <button className={styles.peopleButton}>
-              2 adult, 0 children - 1 room
+              {hotelAdultQuery} adult, {hotelChildQuery} children - 1 room
             </button>
             <button className={styles.searchButton}>Search</button>
           </div>
@@ -31,32 +164,36 @@ export default function ReviewHotel() {
             <div className={styles.checkDateContainer}>
               <div className={styles.reviewBookingContainer}>
                 <div>
-                  <div>Review your booking</div>
+                  <div className={styles.reviewText}>Review your booking</div>
                   <div className={styles.nameRatingContainer}>
-                    <div>{"hotel_name"}</div>
-                    <div>{"stars"}</div>
+                    <div className={styles.hotelNameText}>{hotelNameQuery}</div>
+                    <img
+                      src={"/reviewhotel_rating.png"}
+                      width={155}
+                      height={31}
+                    />
                   </div>
-                  <div>{"hotel_location"}</div>
+                  <div>{hotelLocationQuery}</div>
                   <div>This hotel is reviewed by global firm</div>
                 </div>
                 <div>
-                  <div>{"hotel_image[0]"}</div>
+                  <img src={"/hotel-pictures/2.png"} width={231} height={105} />
                 </div>
               </div>
 
               <div className={styles.checkContainer}>
                 <div>
                   <div>CHECK-IN</div>
-                  <div>{"checkin_date"}</div>
+                  <div>{hotelCheckInQuery}</div>
                   <div>10am</div>
                 </div>
                 <div>1 night</div>
                 <div>
                   <div>CHECK-OUT</div>
-                  <div>{"checkout_date"}</div>
+                  <div>{hotelCheckOutQuery}</div>
                   <div>10am</div>
                 </div>
-                <div>2 Adult - 1 room</div>
+                <div>{hotelAdultQuery} Adult - 1 room</div>
               </div>
             </div>
 
@@ -69,13 +206,19 @@ export default function ReviewHotel() {
                   id="fname"
                   name="fname"
                   placeholder="First Name"
+                  value={formData.fname}
+                  onChange={handleChange}
                 />
+                {errors.fname && <p>{errors.fname}</p>}
                 <input
                   type="text"
                   id="lname"
                   name="lname"
                   placeholder="Last Name"
+                  value={formData.lname}
+                  onChange={handleChange}
                 />
+                {errors.lname && <p>{errors.lname}</p>}
               </div>
               <div>
                 <input
@@ -83,13 +226,19 @@ export default function ReviewHotel() {
                   id="email"
                   name="email"
                   placeholder="E-mail address"
+                  value={formData.email}
+                  onChange={handleChange}
                 />
+                {errors.email && <p>{errors.email}</p>}
                 <input
                   type="text"
                   id="mobile"
                   name="mobile"
                   placeholder="Mobile Number"
+                  value={formData.mobile}
+                  onChange={handleChange}
                 />
+                {errors.mobile && <p>{errors.mobile}</p>}
               </div>
             </div>
 
@@ -111,31 +260,48 @@ export default function ReviewHotel() {
             <div className={styles.paymentSummary}>
               <div className={styles.paymentSummaryTextContainer}>
                 <div style={{ color: "#0000008C" }}>1 room x 1 night</div>
-                <div style={{ fontWeight: "500", color: "#B7BCF3" }}>{"0"}</div>
+                <div style={{ fontWeight: "500", color: "#B7BCF3" }}>
+                  {priceData.baseCost.toLocaleString("en-US", {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  })}
+                </div>
               </div>
               <div className={styles.paymentSummaryTextContainer}>
                 <div style={{ color: "#0000008C" }}>Total discount</div>
-                <div style={{ fontWeight: "500", color: "#B7BCF3" }}>{"0"}</div>
+                <div style={{ fontWeight: "500", color: "#B7BCF3" }}>
+                  {priceData.discount.toLocaleString("en-US", {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  })}
+                </div>
               </div>
               <div className={styles.paymentSummaryTextContainer}>
                 <div style={{ color: "#0000008C" }}>Price after discount</div>
-                <div style={{ fontWeight: "500", color: "#B7BCF3" }}>{"0"}</div>
+                <div style={{ fontWeight: "500", color: "#B7BCF3" }}>
+                  {(priceData.baseCost - priceData.discount).toLocaleString(
+                    "en-US",
+                    { minimumFractionDigits: 2, maximumFractionDigits: 2 }
+                  )}
+                </div>
               </div>
               <div className={styles.paymentSummaryTextContainer}>
                 <div style={{ color: "#0000008C" }}>Taxes & service fees</div>
-                <div style={{ fontWeight: "500", color: "#B7BCF3" }}>{"0"}</div>
+                <div style={{ fontWeight: "500", color: "#B7BCF3" }}>
+                  {priceData.taxesAndServices.toLocaleString("en-US", {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  })}
+                </div>
               </div>
               <div className={styles.paymentSummaryTextContainer}>
-                <div
-                  style={{
-                    fontSize: "22px",
-                    fontWeight: "700",
-                    color: "#2D3DDF",
-                  }}
-                >
-                  Total Amount
+                <div className={styles.totalCostText}>Total Amount</div>
+                <div style={{ color: "#2D3DDF" }}>
+                  {priceData.totalCost.toLocaleString("en-US", {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  })}
                 </div>
-                <div style={{ color: "#2D3DDF" }}>{"0"}</div>
               </div>
             </div>
             <div className={styles.paymentPolicy}>
