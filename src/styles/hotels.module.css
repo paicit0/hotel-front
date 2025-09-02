@@ -14,6 +14,15 @@
     display: flex;
     flex-direction: row;
   }
+
+  .backButton {
+    border: none;
+    background-color: transparent;
+  }
+  .backButton:hover {
+    cursor: pointer;
+  }
+
   .headerSortFilter {
     display: flex;
     flex-direction: row;
@@ -136,6 +145,10 @@
     gap: 10px;
   }
 
+  .backButton {
+    border: none;
+  }
+
   .headerSortFilter {
     display: flex;
     flex-direction: column;
@@ -195,7 +208,7 @@
   }
 
   .eachHotelNameText {
-        font-size: 20px;
+    font-size: 20px;
     font-weight: 600;
   }
 

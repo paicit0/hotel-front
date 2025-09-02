@@ -51,12 +51,18 @@ export default function Hotels() {
     router.push(`/hotel/${hotel_id}/page`);
   };
 
+  const handleBackClick = () => {
+    router.push("/");
+  };
+
   return (
     <>
       <div className={styles.hotelsContainer}>
         <div className={styles.headerContainer}>
           <div className={styles.headerBackSearchContainer}>
-            <img src="/back_button.png" alt="Back" width={56} height={56} />
+            <button onClick={() => handleBackClick()} className={styles.backButton}>
+              <img src="/back_button.png" alt="Back" width={56} height={56} />
+            </button>
             <Searchbar marginLeft="20px" />
           </div>
           <div className={styles.headerSortFilter}>
@@ -102,28 +108,29 @@ export default function Hotels() {
           <div>
             <div className={styles.recommendedHeaderText}>Recommended</div>
           </div>
-              <div>{hotelsData.length > 0 &&
-            hotelsData.map((hotel) => (
-              <div
-                className={styles.eachRecommendedContainer}
-                key={hotel.hotel_id}
-              >
-                <img
-                  className={styles.recImg}
-                  src={hotel.hotel_images[0]}
-                  alt="Back"
-                  width={256}
-                  height={123}
-                />
-                <div className={styles.eachRecInfoContainer}>
-                  <div>
-                    <div>Trip to {hotel.hotel_name} &</div>
-                    <div>Get 30% off on flight booking</div>
+          <div>
+            {hotelsData.length > 0 &&
+              hotelsData.map((hotel) => (
+                <div
+                  className={styles.eachRecommendedContainer}
+                  key={hotel.hotel_id}
+                >
+                  <img
+                    className={styles.recImg}
+                    src={hotel.hotel_images[0]}
+                    alt="Back"
+                    width={256}
+                    height={123}
+                  />
+                  <div className={styles.eachRecInfoContainer}>
+                    <div>
+                      <div>Trip to {hotel.hotel_name} &</div>
+                      <div>Get 30% off on flight booking</div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}</div>
-          
+              ))}
+          </div>
         </div>
       </div>
     </>
