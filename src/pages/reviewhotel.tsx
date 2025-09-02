@@ -167,7 +167,7 @@ export default function ReviewHotel() {
                     This hotel is reviewed by global firm
                   </div>
                 </div>
-                <div>
+                <div className={styles.hotelImgContainer}>
                   <img src={"/hotel-pictures/2.png"} width={231} height={105} />
                 </div>
               </div>
@@ -246,7 +246,7 @@ export default function ReviewHotel() {
             </div>
 
             <button className={styles.addGuestButton}>Add Guest +</button>
-            <div className={styles.requestTest}>Special Request(optional)</div>
+            <div className={styles.requestText}>Special Request(optional)</div>
 
             <input className={styles.requestInput} type="text" />
             <div>
