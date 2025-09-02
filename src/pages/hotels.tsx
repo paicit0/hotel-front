@@ -41,7 +41,7 @@ export default function Hotels() {
       }
     };
     fetchHotels();
-  }, []);
+  }, [location]);
 
   useEffect(() => {
     console.log("Updated state:", hotelsData);
