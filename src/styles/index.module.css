@@ -319,37 +319,6 @@
     font-size: 16px; /* Prevents zoom on iOS */
   }
 
-  .dateContainer {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 400px;
-    gap: 0;
-  }
-
-  .inputStartDate,
-  .inputEndDate {
-    width: 100%;
-    height: 50px;
-    margin-bottom: 12px;
-    border: 1px solid #bec3ff;
-    background-color: #f2f3ff;
-    color: black;
-    padding: 0 16px;
-    box-sizing: border-box;
-    font-size: 16px;
-  }
-
-  .inputStartDate {
-    border-radius: 8px 8px 0 0;
-    border-bottom: none;
-  }
-
-  .inputEndDate {
-    border-radius: 0 0 8px 8px;
-    border-top: none;
-  }
-
   .inputPeople {
     width: 100%;
     max-width: 400px;
