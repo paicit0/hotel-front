@@ -48,6 +48,10 @@ export default function PaymentDetails() {
     router.push("/payment-done");
   };
 
+  if (!priceData || !priceData.baseCost) {
+    return <div>Loading cost data...</div>;
+  }
+
   return (
     <>
       <div className={styles.paymentDetailsContainer}>
@@ -79,7 +83,11 @@ export default function PaymentDetails() {
                 setSelectedPaymentMethod("debitcard");
               }}
             >
-              <div className={styles.iconWayWrapper}>
+              <div           className={
+                  selectedPaymentMethod === "debitcard"
+                    ? styles.iconWayWrapperSelected
+                    : styles.iconWayWrapper
+                }>
                 <img
                   src="/payment_debitcard.png"
                   alt="Debit Card"
@@ -108,7 +116,13 @@ export default function PaymentDetails() {
                 setSelectedPaymentMethod("upi");
               }}
             >
-              <div className={styles.iconWayWrapper}>
+              <div
+                className={
+                  selectedPaymentMethod === "upi"
+                    ? styles.iconWayWrapperSelected
+                    : styles.iconWayWrapper
+                }
+              >
                 <img src="/payment_upi.png" alt="UPI" width={56} height={56} />
                 <div>UPI</div>
               </div>
@@ -131,7 +145,11 @@ export default function PaymentDetails() {
                 setSelectedPaymentMethod("phonepay");
               }}
             >
-              <div className={styles.iconWayWrapper}>
+              <div           className={
+                  selectedPaymentMethod === "phonepay"
+                    ? styles.iconWayWrapperSelected
+                    : styles.iconWayWrapper
+                }>
                 <img
                   src="/payment_phonepay.png"
                   alt="PhonePay"
@@ -159,7 +177,11 @@ export default function PaymentDetails() {
                 setSelectedPaymentMethod("netbanking");
               }}
             >
-              <div className={styles.iconWayWrapper}>
+              <div           className={
+                  selectedPaymentMethod === "netbanking"
+                    ? styles.iconWayWrapperSelected
+                    : styles.iconWayWrapper
+                }>
                 <img
                   src="/payment_netbanking.png"
                   alt="Net Banking"
@@ -187,7 +209,11 @@ export default function PaymentDetails() {
                 setSelectedPaymentMethod("creditcard");
               }}
             >
-              <div className={styles.iconWayWrapper}>
+              <div           className={
+                  selectedPaymentMethod === "creditcard"
+                    ? styles.iconWayWrapperSelected
+                    : styles.iconWayWrapper
+                }>
                 <img
                   src="/payment_creditcard.png"
                   alt="Credit Card"
