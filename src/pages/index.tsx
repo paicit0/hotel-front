@@ -20,7 +20,7 @@ export default function Home() {
     <div className={styles.container}>
       <div className={styles.searchContainer}>
         <div className={styles.searchbarContainer}>
-          <Searchbar  />
+          <Searchbar />
         </div>
 
         <div
@@ -110,20 +110,43 @@ export default function Home() {
         </div>
 
         <div className={styles.inputContainer}>
-          <input
-            className={styles.inputLocation}
-            type="text"
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
-            placeholder="Pattaya"
-          />
+          <div className={styles.locationWrapper}>
+            <img
+              src="/location_icon.png"
+              alt="Location"
+              width={32}
+              height={32}
+            />
+            <input
+              className={styles.inputLocation}
+              type="text"
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
+              placeholder="Pattaya"
+            />
+          </div>
+
           <button className={styles.inputDate}>
-            <div style={{ marginLeft: "" }}>Thu,20 Dec-2020</div>
-            <div style={{ marginRight: "" }}>Fri,21 Dec-2020</div>
+            <img
+              src="/calender_icon.png"
+              alt="Calendar"
+              width={32}
+              height={32}
+            />
+            <div className={styles.checkInPart}>Thu,20 Dec-2020</div>
+            <div className={styles.checkOutPart}>Fri,21 Dec-2020</div>
           </button>
+
           <button className={styles.inputPeople}>
-            2 adult, 1 children - 1 room
+            <img
+              src="/people_icon.png"
+              alt="People"
+              width={32}
+              height={32}
+            />
+            <div>2 adult, 1 children - 1 room</div>
           </button>
+
           <button className={styles.searchButton} onClick={handleSearch}>
             Search
           </button>

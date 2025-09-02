@@ -74,49 +74,77 @@
     margin-right: 56.03px;
   }
 
-  .inputLocation {
+  .locationWrapper {
+    display: flex;
+    align-items: center;
     width: 692px;
     height: 62px;
     margin-bottom: 14px;
     border: 1px solid #2d3ddf;
     border-radius: 4px;
-    color: black;
     background-color: white;
+    padding: 0 32px;
+    gap: 16px;
   }
+
+  .inputLocation {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: black;
+    font-size: 18px;
+  }
+
   .inputLocation::placeholder {
-    padding-left: 112.92px;
     color: black;
     font-size: 18px;
   }
 
   .inputDate {
     display: flex;
-    flex-direction: row;
     align-items: center;
-    gap: 143px;
     width: 692px;
     height: 62px;
-    padding-left: 107.11px;
     margin-bottom: 14.5px;
     border: 1px solid #bec3ff;
     border-radius: 4px;
     font-size: 18px;
     color: black;
     background-color: #f2f3ff;
+    padding: 0 32px;
+    gap: 16px;
   }
+
+  .checkInPart {
+    flex: 1;
+    border-right: 1px solid #b5b5b5;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 0px;
+  }
+
+  .checkOutPart {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+  }
+
   .inputPeople {
     display: flex;
-    justify-content: flex-start;
-    justify-content: space-between;
     align-items: center;
     width: 692px;
     height: 62px;
-    padding-left: 107.11px;
     margin-bottom: 32px;
     border: 1px solid #bec3ff;
     border-radius: 8px;
     background-color: #f2f3ff;
     font-size: 18px;
+    padding: 0 32px;
+    gap: 16px;
   }
 
   .searchButton {
@@ -134,11 +162,10 @@
   .hotelRecentSearchCardContainer {
     display: flex;
     align-self: flex-start;
-    /* justify-content: space-between; */
     width: 692.39px;
     height: 173px;
     border: 1px solid #d1d1d1;
-    margin-bottom: 24px
+    margin-bottom: 24px;
   }
 
   .hotelRecentSearchCardMiddle {
@@ -161,7 +188,7 @@
     width: 47px;
     height: 22px;
     font-size: 12px;
-    color:white;
+    color: white;
     background-color: #ff6969;
     border-radius: 16px;
     margin-right: 16px;
@@ -306,6 +333,8 @@
   }
 
   .inputLocation {
+    display: flex;
+    align-items: center;
     width: 100%;
     max-width: 400px;
     height: 50px;
@@ -316,7 +345,8 @@
     background-color: white;
     padding: 0 16px;
     box-sizing: border-box;
-    font-size: 16px; /* Prevents zoom on iOS */
+    font-size: 16px;
+    gap: 8px;
   }
 
   .inputPeople {
@@ -358,7 +388,6 @@
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    
   }
 
   .hotelRecentSearchCardMiddle {
