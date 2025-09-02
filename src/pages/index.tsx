@@ -23,20 +23,7 @@ export default function Home() {
           <Searchbar />
         </div>
 
-        <div
-          style={{
-            alignSelf: "flex-start",
-            width: "505px",
-            height: "57px",
-            marginTop: "62px",
-            marginBottom: "26px",
-            color: "#2D3DDF",
-            fontWeight: "600",
-            fontSize: 38,
-          }}
-        >
-          What Are You Looking For?
-        </div>
+        <div className={styles.lookingForText}>What Are You Looking For?</div>
         <div className={styles.categoryButtonContainer}>
           <button
             className={

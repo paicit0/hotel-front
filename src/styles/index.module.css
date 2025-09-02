@@ -27,6 +27,17 @@
     margin-bottom: 30px;
   }
 
+  .lookingForText{
+    font-size: 38px;
+    font-weight: 600;
+    color: #2D3DDF;
+    align-self: flex-start;
+    width: 505px;
+    height: 57px;
+    margin-top: 62px;
+    margin-bottom: 26px;
+  }
+
   .categoryButtonContainer {
     display: flex;
     justify-content: space-between;
@@ -298,6 +309,16 @@
     width: 100%;
     max-width: 400px;
     margin-bottom: 20px;
+  }
+    .lookingForText{
+      text-align: center;
+    font-size: 28px;
+    font-weight: 600;
+    color: #2D3DDF;
+    align-self: flex-start;
+    width: 100%;
+    height: 57px;
+    /* margin-bottom: 16px; */
   }
 
   .categoryButtonContainer {
