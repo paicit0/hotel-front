@@ -73,4 +73,7 @@
     background: white;
     color: #3835de;
   }
+  .topDots{
+    display: none;
+  }
 }

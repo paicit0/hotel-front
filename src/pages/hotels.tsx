@@ -80,7 +80,9 @@ export default function Hotels() {
                   />
                   <div className={styles.eachHotelInfoContainer}>
                     <div>
-                      <div className={styles.eachHotelNameText}>{hotel.hotel_name}</div>
+                      <div className={styles.eachHotelNameText}>
+                        {hotel.hotel_name}
+                      </div>
                       <div>Price starts from {"1,000"}</div>
                     </div>
 
@@ -97,8 +99,10 @@ export default function Hotels() {
         </div>
 
         <div className={styles.recommendedContainer}>
-          <div className={styles.recommendedHeaderText}>Recommended</div>
-          {hotelsData.length > 0 &&
+          <div>
+            <div className={styles.recommendedHeaderText}>Recommended</div>
+          </div>
+              <div>{hotelsData.length > 0 &&
             hotelsData.map((hotel) => (
               <div
                 className={styles.eachRecommendedContainer}
@@ -118,7 +122,8 @@ export default function Hotels() {
                   </div>
                 </div>
               </div>
-            ))}
+            ))}</div>
+          
         </div>
       </div>
     </>

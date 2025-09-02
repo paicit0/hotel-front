@@ -14,7 +14,8 @@ export default function Sidebar() {
     <>
       <div className={styles.sidebar}>
         <img
-        style={{position:'absolute', top:'43px'}}
+          style={{ position: "absolute", top: "43px" }}
+          className={styles.topDots}
           src={"/sidebar_dots_icon.png"}
           alt="home_icon"
           width={30}
