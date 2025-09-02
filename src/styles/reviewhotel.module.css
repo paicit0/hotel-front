@@ -28,17 +28,31 @@
   width: 956.42px;
   margin-bottom: 32px;
 }
-.nameRatingContainer{
+
+.reviewText {
+  font-weight: 500;
+  font-size: 24px;
+  color: #221F3C;
+}
+.nameRatingContainer {
   display: flex;
   flex-direction: row;
+}
+
+.hotelNameText {
+  font-size: 22px;
+  font-weight: 600;
+  color: #2D3DDF;
 }
 
 .whereButton {
   width: 279px;
   height: 62px;
+  background-color: #ffffff;
+  border: 1px solid #b5b5b5;
 }
 
-.checkContainer{
+.checkContainer {
   display: flex;
   flex-direction: row;
   margin-bottom: 32px;
@@ -51,11 +65,15 @@
   align-items: center;
   width: 344px;
   height: 62px;
+  background-color: #ffffff;
+  border: 1px solid #b5b5b5;
 }
 .peopleButton {
   width: 382px;
   height: 62px;
   margin-right: 12px;
+  background-color: #ffffff;
+  border: 1px solid #b5b5b5;
 }
 
 .searchButton {
@@ -78,11 +96,10 @@
 .requestInput {
   width: 867px;
   height: 129px;
-
 }
 
 .continueButton {
-    width: 280px;
+  width: 280px;
   height: 62px;
   background-color: #2d3ddf;
   font-weight: 500;
@@ -95,16 +112,22 @@
 .rightContainer {
   width: 482px;
   margin-right: 141px;
-
 }
 
-.paymentSummary{
+.paymentSummary {
+  display: flex;
+  flex-direction: column;
   margin-bottom: 49px;
-
+  gap: 10px;
 }
 
 .paymentSummaryTextContainer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+.totalCostText {
+  font-weight: 700;
+  font-size: 22px;
+  /* color: #2d3ddf; */
 }

@@ -1,10 +1,48 @@
 import styles from "@/styles/payment-details.module.css";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { PriceDataType } from "./reviewhotel";
 export default function PaymentDetails() {
   const [selectedPaymentMethod, setSelectedPaymentMethod] =
     useState<string>("");
+  const [priceData, setPriceData] = useState<PriceDataType>({
+    baseCost: 0,
+    discount: 0,
+    priceAfterDiscount: 0,
+    taxesAndServices: 0,
+    totalCost: 0,
+  });
   const router = useRouter();
+  const hotelIdQuery = router.query.hotel_id;
+  const hotelNameQuery = router.query.hotel_name;
+  const hotelLocationQuery = router.query.hotel_location;
+  const hotelRoomTypeQuery = router.query.room_type;
+  const hotelCheckInQuery = router.query.check_in;
+  const hotelCheckOutQuery = router.query.check_out;
+  const hotelAdultQuery = router.query.adult;
+  const hotelChildQuery = router.query.child;
+
+  const params = new URLSearchParams({
+    id: hotelIdQuery as string,
+    room_type: hotelRoomTypeQuery as string,
+    checkInDate: hotelCheckInQuery as string,
+    checkOutDate: hotelCheckOutQuery as string,
+    adult: hotelAdultQuery as string,
+    child: hotelChildQuery as string,
+  });
+
+  useEffect(() => {
+    const fetchCostCalculator = async () => {
+      const url = "http://localhost:8080/costCalculator";
+      try {
+        const response = await fetch(`${url}?${params.toString()}`);
+        const result = await response.json();
+        console.log(result);
+        setPriceData(result);
+      } catch (error) {}
+    };
+    fetchCostCalculator();
+  }, [router.isReady]);
 
   const handleConfirm = () => {
     router.push("/payment-done");
@@ -17,7 +55,14 @@ export default function PaymentDetails() {
           <button className={styles.backButton}>
             <img src="/back_button.png" alt="Back" width={56} height={56} />
           </button>
-          <div style={{ marginLeft: "247px", marginBottom: "52px", fontWeight:'600', fontSize:'24px' }}>
+          <div
+            style={{
+              marginLeft: "247px",
+              marginBottom: "52px",
+              fontWeight: "600",
+              fontSize: "24px",
+            }}
+          >
             Payment Details
           </div>
         </div>
@@ -165,19 +210,39 @@ export default function PaymentDetails() {
           <div className={styles.paymentSummary}>
             <div className={styles.paymentSummaryTextContainer}>
               <div style={{ color: "#0000008C" }}>Base fare</div>
-              <div style={{ fontWeight: "500", color: "#B7BCF3" }}>{"0"}</div>
+              <div style={{ fontWeight: "500", color: "#B7BCF3" }}>
+                {priceData.baseCost.toLocaleString("en-US", {
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                })}
+              </div>
             </div>
             <div className={styles.paymentSummaryTextContainer}>
               <div style={{ color: "#0000008C" }}>Total discount</div>
-              <div style={{ fontWeight: "500", color: "#B7BCF3" }}>{"0"}</div>
+              <div style={{ fontWeight: "500", color: "#B7BCF3" }}>
+                {priceData.discount.toLocaleString("en-US", {
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                })}
+              </div>
             </div>
             <div className={styles.paymentSummaryTextContainer}>
               <div style={{ color: "#0000008C" }}>Price after discount</div>
-              <div style={{ fontWeight: "500", color: "#B7BCF3" }}>{"0"}</div>
+              <div style={{ fontWeight: "500", color: "#B7BCF3" }}>
+                {priceData.priceAfterDiscount.toLocaleString("en-US", {
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                })}
+              </div>
             </div>
             <div className={styles.paymentSummaryTextContainer}>
               <div style={{ color: "#0000008C" }}>Taxes & service fees</div>
-              <div style={{ fontWeight: "500", color: "#B7BCF3" }}>{"0"}</div>
+              <div style={{ fontWeight: "500", color: "#B7BCF3" }}>
+                {priceData.taxesAndServices.toLocaleString("en-US", {
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                })}
+              </div>
             </div>
             <div className={styles.paymentSummaryTextContainer}>
               <div
@@ -189,7 +254,12 @@ export default function PaymentDetails() {
               >
                 Total Amount
               </div>
-              <div style={{ color: "#2D3DDF" }}>{"0"}</div>
+              <div style={{ color: "#2D3DDF" }}>
+                {priceData.totalCost.toLocaleString("en-US", {
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                })}
+              </div>
             </div>
           </div>
         </div>
