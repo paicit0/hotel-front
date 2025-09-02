@@ -249,7 +249,9 @@ export default function Home() {
               Amenities
             </div>
             <img src="amenities.png" width={312} height={63} />
-            <div>0,000/night</div>
+            <div style={{ color: "#2D3DDF", fontWeight: "600" }}>
+              1,000/night
+            </div>
           </div>
 
           <button className={styles.bookNowButton}>
@@ -261,7 +263,7 @@ export default function Home() {
       <div className={styles.imgContainer}>
         <div className={styles.mainImage}></div>
         <img
-          style={{ position: "absolute", top: 149.47, left: 436.56 }}
+          className={styles.plane}
           src="plane.png"
           width={71.26}
           height={64.03}
@@ -274,31 +276,16 @@ export default function Home() {
         />
 
         <div className={styles.takeTourTextContainer}>
-          <div
-            style={{
-              width: "492px",
-              height: "95px",
-              fontSize: "63px",
-              color: "#FFFFFF",
-              marginBottom: "8px",
-            }}
-          >
-            Incredible India
-          </div>
-          <div
-            style={{
-              fontSize: "33px",
-              color: "#FFFFFF",
-            }}
-          >
+          <div className={styles.increText}>Incredible India</div>
+          <div className={styles.belowIncreText}>
             “For where thy treasure is, <br />
             there also will thy heart be.”
           </div>
         </div>
 
-        {/* <button className={styles.takeTourButtonContainer}> */}
-        <div className={styles.takeTourButton}>Take Tour</div>
-        {/* </button> */}
+        <button className={styles.takeTourButtonContainer}>
+          <div className={styles.takeTourButton}>Take Tour</div>
+        </button>
       </div>
     </div>
   );

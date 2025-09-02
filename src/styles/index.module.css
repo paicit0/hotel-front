@@ -27,10 +27,10 @@
     margin-bottom: 30px;
   }
 
-  .lookingForText{
+  .lookingForText {
     font-size: 38px;
     font-weight: 600;
-    color: #2D3DDF;
+    color: #2d3ddf;
     align-self: flex-start;
     width: 505px;
     height: 57px;
@@ -247,10 +247,29 @@
     background-image: url("/gradient.png"), url("/explore_india.png");
   }
 
+  .plane {
+    position: absolute;
+    top: 149.47px;
+    left: 436.56px;
+  }
+
   .takeTourTextContainer {
     position: absolute;
     top: 650px;
     left: 70px;
+  }
+
+  .increText {
+    width: 492px;
+    height: 95px;
+    font-size: 63px;
+    color: #ffffff;
+    margin-bottom: 8px;
+  }
+
+  .belowIncreText {
+    font-size: 33px;
+    color: #ffffff;
   }
 
   .takeTourButtonContainer {
@@ -310,11 +329,11 @@
     max-width: 400px;
     margin-bottom: 20px;
   }
-    .lookingForText{
-      text-align: center;
+  .lookingForText {
+    text-align: center;
     font-size: 28px;
     font-weight: 600;
-    color: #2D3DDF;
+    color: #2d3ddf;
     align-self: flex-start;
     width: 100%;
     height: 57px;
@@ -529,7 +548,7 @@
 
   .imgContainer {
     width: 100%;
-    height: 300px;
+    height: 428px;
     position: relative;
     background-size: cover;
     background-position: center;
@@ -545,36 +564,51 @@
     background-position: center;
   }
 
+  .plane {
+    display: none;
+  }
+
   .takeTourTextContainer {
     position: absolute;
     bottom: 80px;
-    left: 20px;
-    right: 20px;
     color: white;
-    text-align: center;
+    margin-left: 24px;
+  }
+
+  .increText {
+    font-size: 32px;
+    color: #ffffff;
+    margin-bottom: 16px;
+  }
+
+  .belowIncreText {
+    font-size: 16px;
+    color: #ffffff;
+    margin-bottom: 24px;
   }
 
   .takeTourButtonContainer {
+    position: absolute;
     width: 100%;
     display: flex;
-    justify-content: center;
-    position: absolute;
     bottom: 20px;
-    left: 0;
+    left: 48;
+    background: transparent;
+    border: none;
   }
 
   .takeTourButton {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 179px;
+    width: 80%;
     height: 64px;
     border: 1px solid rgba(255, 255, 255, 0.35);
     border-radius: 8px;
     background: rgba(255, 255, 255, 0.2);
     color: white;
-    font-size: 14px;
-    cursor: pointer;
+    font-size: 20px;
+    font-weight: 600;
   }
 
   .hidden-mobile {
