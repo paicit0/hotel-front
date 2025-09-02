@@ -128,7 +128,7 @@
 @media (max-width: 767px) {
   .hotelsContainer {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     align-items: center;
     margin: 0;
     padding: 10px;
@@ -137,6 +137,7 @@
   .headerContainer {
     width: 100%;
     margin-top: 20px;
+    margin-left: 24px;
   }
 
   .headerBackSearchContainer {
@@ -147,6 +148,7 @@
 
   .backButton {
     border: none;
+    background: none;
   }
 
   .headerSortFilter {
