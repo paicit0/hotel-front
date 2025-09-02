@@ -10,6 +10,7 @@ export type Hotel = {
   hotel_location: string;
   hotel_review_stars: number;
   hotel_room_types: roomType[];
+  hotel_images: string[];
 };
 
 type roomType = {
@@ -56,34 +57,68 @@ export default function Hotels() {
         <div className={styles.headerContainer}>
           <div className={styles.headerBackSearchContainer}>
             <img src="/back_button.png" alt="Back" width={56} height={56} />
-            <Searchbar marginLeft="20px" marginRight="341px"/>
+            <Searchbar marginLeft="20px" />
           </div>
           <div className={styles.headerSortFilter}>
-            <div>Best places to enjoy your stay</div>
+            <div className={styles.headerTextContainer}>
+              Best places to enjoy your stay
+            </div>
             <div className={styles.sortButtonContainer}>
-              <button>Sort By</button>
-              <button>Filter</button>
+              <button className={styles.headerButton}>Sort By</button>
+              <button className={styles.headerButton}>Filter</button>
             </div>
           </div>
-        </div>
-        <div className={styles.hotelListContainer}>
-          <div>
-            <div>
-              {hotelsData.length > 0 &&
-                hotelsData.map((hotel) => (
-                  <div key={hotel.hotel_id}>
-                    <div>{hotel.hotel_name}</div>
-                    <div>Price starts from {}</div>
-                    <button onClick={() => handleHotelClick(hotel.hotel_id)}>
+          <div className={styles.hotelListContainer}>
+            {hotelsData.length > 0 &&
+              hotelsData.map((hotel) => (
+                <div className={styles.eachHotelContainer} key={hotel.hotel_id}>
+                  <img
+                    src={hotel.hotel_images[0]}
+                    alt="Back"
+                    width={449}
+                    height={280}
+                  />
+                  <div className={styles.eachHotelInfoContainer}>
+                    <div>
+                      <div className={styles.eachHotelNameText}>{hotel.hotel_name}</div>
+                      <div>Price starts from {"1,000"}</div>
+                    </div>
+
+                    <button
+                      className={styles.detailsButton}
+                      onClick={() => handleHotelClick(hotel.hotel_id)}
+                    >
                       View Details
                     </button>
                   </div>
-                ))}
-            </div>
+                </div>
+              ))}
           </div>
-          <div className={styles.recommendedContainer}>
-            <div>Recommended</div>
-          </div>
+        </div>
+
+        <div className={styles.recommendedContainer}>
+          <div className={styles.recommendedHeaderText}>Recommended</div>
+          {hotelsData.length > 0 &&
+            hotelsData.map((hotel) => (
+              <div
+                className={styles.eachRecommendedContainer}
+                key={hotel.hotel_id}
+              >
+                <img
+                  className={styles.recImg}
+                  src={hotel.hotel_images[0]}
+                  alt="Back"
+                  width={256}
+                  height={123}
+                />
+                <div className={styles.eachRecInfoContainer}>
+                  <div>
+                    <div>Trip to {hotel.hotel_name} &</div>
+                    <div>Get 30% off on flight booking</div>
+                  </div>
+                </div>
+              </div>
+            ))}
         </div>
       </div>
     </>
