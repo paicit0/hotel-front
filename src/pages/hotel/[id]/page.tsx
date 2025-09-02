@@ -91,8 +91,8 @@ export default function HotelPage() {
 
           <button className={styles.dateButton}>
             <div className={styles.dateButtonInsideContainer}>
-              <div>20 Dec,2020</div>
-              <div>21 Dec,2020</div>
+              <div className={styles.checkInPart}>20 Dec,2020</div>
+              <div className={styles.checkOutPart}>21 Dec,2020</div>
             </div>
           </button>
 
@@ -113,14 +113,15 @@ export default function HotelPage() {
                   width={680}
                   height={448}
                 />
-                <div>
+                <div className={styles.rightImgContainer}>
                   <img
                     src="/explore2.png"
                     alt={"Explore"}
                     width={408}
                     height={285}
+                    style={{marginBottom:'12px'}}
                   />
-                  <div>
+                  <div className={styles.thirdFourthImgContainer}>
                     <img
                       src="/explore3.png"
                       alt={"Explore"}

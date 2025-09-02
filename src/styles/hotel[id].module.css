@@ -20,7 +20,7 @@
 .contentContainer {
   display: flex;
   flex-direction: row;
-  gap: 84px;
+  gap: 100px;
 }
 
 .headerLocationButton {
@@ -35,6 +35,7 @@
 }
 
 .headerLocationButtonText {
+  font-size: 18px;
   margin-left: 35px;
 }
 
@@ -43,15 +44,33 @@
   height: 62px;
   background-color: #ffffff;
   border: 1px solid #b5b5b5;
+  border-radius: 4px;
 }
 
 .dateButtonInsideContainer {
   display: flex;
   flex-direction: row;
-  border-radius: 4px;
-  gap: 180.27px;
+  justify-content: center;
+  font-size: 18px;
+  height: 100%;
+}
+
+.checkInPart {
+  flex: 1;
+  border-right: 1px solid #b5b5b5;
+  height: 62px;
+  display: flex;
+  align-items: center;
   justify-content: center;
 }
+
+.checkOutPart {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 
 .peopleButton {
   display: flex;
@@ -66,6 +85,7 @@
 
 .peopleButtonText {
   margin-left: 36px;
+  font-size: 18px;
 }
 .searchButton {
   width: 256px;
@@ -87,6 +107,14 @@
 .hotelInfoImgContainer {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.thirdFourthImgContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .hotelInfo {
@@ -132,7 +160,7 @@
   overflow: hidden;
   margin-bottom: 16px;
   max-width: 500px;
-  border: 1px solid #D1D1D1;
+  border: 1px solid #d1d1d1;
 }
 
 .roomTypeContainer img {
@@ -189,6 +217,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-between;
   gap: 16px;
   padding: 20px;
 }
@@ -196,6 +225,7 @@
 .reviewContainer {
   width: 481px;
   height: 405px;
+  margin-right: 67px;
 }
 
 .reviewHeaderContainer {
