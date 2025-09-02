@@ -90,10 +90,8 @@ export default function HotelPage() {
           </button>
 
           <button className={styles.dateButton}>
-            <div className={styles.dateButtonInsideContainer}>
               <div className={styles.checkInPart}>20 Dec,2020</div>
               <div className={styles.checkOutPart}>21 Dec,2020</div>
-            </div>
           </button>
 
           <button className={styles.peopleButton}>
