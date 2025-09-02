@@ -19,7 +19,10 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <div className={styles.searchContainer}>
-        <Searchbar marginRight="48.42px" />
+        <div className={styles.searchbarContainer}>
+          <Searchbar  />
+        </div>
+
         <div
           style={{
             alignSelf: "flex-start",
@@ -127,6 +130,7 @@ export default function Home() {
         </div>
 
         <div className={styles.recentSearchContainer}>Recent Searches</div>
+
         <div className={styles.hotelRecentSearchCardContainer}>
           <img
             src="/hotel-pictures/1.png"
@@ -164,7 +168,68 @@ export default function Home() {
                     fontWeight: "200",
                   }}
                 >
-                  0000 Reviews
+                  1566 Reviews
+                </div>
+              </div>
+            </div>
+            <div
+              style={{
+                fontSize: "14px",
+                color: "#A8A8A8",
+                fontFamily: "Poppins",
+                fontWeight: "200",
+              }}
+            >
+              Amenities
+            </div>
+            <img src="amenities.png" width={312} height={63} />
+            <div style={{ color: "#2D3DDF", fontWeight: "600" }}>
+              1,000/night
+            </div>
+          </div>
+
+          <button className={styles.bookNowButton}>
+            <div className={styles.bookNowButtonTextContainer}>Book Now</div>
+          </button>
+        </div>
+        <div className={styles.hotelRecentSearchCardContainer}>
+          <img
+            src="/hotel-pictures/1.png"
+            alt="Parking"
+            width={198}
+            height={173}
+          />
+          <div className={styles.hotelRecentSearchCardMiddle}>
+            <div style={{ fontSize: "18px", fontWeight: "500" }}>
+              Hotel_Name
+            </div>
+            <img
+              style={{ marginBottom: "6px" }}
+              src="/recent_search_rating.png"
+              alt="Parking"
+              width={80}
+              height={12}
+            />
+
+            <div style={{ display: "flex", flexDirection: "row" }}>
+              <div className={styles.ratingIconWrapper}>
+                <div className={styles.ratingIcon}>
+                  <img
+                    src="/ratingIcon.png"
+                    alt="Rating"
+                    width={10}
+                    height={10}
+                  />
+                  <div>0.1</div>
+                </div>
+                <div
+                  style={{
+                    fontSize: "14px",
+                    color: "#A8A8A8",
+                    fontWeight: "200",
+                  }}
+                >
+                  1566 Reviews
                 </div>
               </div>
             </div>

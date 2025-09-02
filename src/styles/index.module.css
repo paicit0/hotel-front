@@ -19,13 +19,19 @@
   }
 
   .searchbarContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-self: flex-start;
+    width: 692px;
     margin-bottom: 30px;
   }
 
   .categoryButtonContainer {
     display: flex;
     justify-content: space-between;
-    width: 300px;
+    width: 374.76px;
+    height: 85px;
     margin-bottom: 30px;
   }
 
@@ -132,6 +138,7 @@
     width: 692.39px;
     height: 173px;
     border: 1px solid #d1d1d1;
+    margin-bottom: 24px
   }
 
   .hotelRecentSearchCardMiddle {
@@ -382,6 +389,7 @@
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    
   }
 
   .hotelRecentSearchCardMiddle {
