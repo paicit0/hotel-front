@@ -104,6 +104,10 @@ export default function ReviewHotel() {
     }
   };
 
+    const handleBackClick = () => {
+    router.push(`/hotel/${hotelIdQuery}/page`);
+  };
+
   const formatDate = (dateStr: string) => {
     const day = dateStr.slice(0, 2);
     const month = parseInt(dateStr.slice(2, 4), 10) - 1;
@@ -121,13 +125,16 @@ export default function ReviewHotel() {
   if (!priceData || !priceData.baseCost) {
     return <div>Loading cost data...</div>;
   }
+  
 
   return (
     <>
       <div className={styles.container}>
         <div className={styles.headerContainer}>
           <div className={styles.headerBackSearchContainer}>
-            <img src="/back_button.png" alt="Back" width={56} height={56} />
+                        <button onClick={() => handleBackClick()} className={styles.backButton}>
+              <img src="/back_button.png" alt="Back" width={56} height={56} />
+            </button>
             <Searchbar marginLeft="20px" marginRight="67px" />
           </div>
           <div className={styles.headerButtonContainer}>

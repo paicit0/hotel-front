@@ -66,6 +66,14 @@
     font-size: 18px;
   }
 
+  .backButton {
+    border: none;
+    background-color: transparent;
+  }
+  .backButton:hover {
+    cursor: pointer;
+  }
+
   .checkContainer {
     display: flex;
     flex-direction: row;
