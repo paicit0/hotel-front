@@ -83,146 +83,207 @@ export default function HotelPage() {
         </div>
 
         <div className={styles.headerButtonContainer}>
-          <button>Where are you going?</button>
-          <div>
-            <button className={styles.dateButton}>20 Dec,2020</button>
-            <button className={styles.dateButton}>21 Dec,2020</button>
-          </div>
+          <button className={styles.headerLocationButton}>
+            <div className={styles.headerLocationButtonText}>
+              Where are you going?
+            </div>
+          </button>
 
-          <button>2 adult, 0 children - 1 room</button>
+          <button className={styles.dateButton}>
+            <div className={styles.dateButtonInsideContainer}>
+              <div>20 Dec,2020</div>
+              <div>21 Dec,2020</div>
+            </div>
+          </button>
+
+          <button className={styles.peopleButton}>
+            <div className={styles.peopleButtonText}>
+              2 adult, 0 children - 1 room
+            </div>
+          </button>
           <button className={styles.searchButton}>Search</button>
         </div>
-
-        <div className={styles.reviewContainer}>
-          <div className={styles.reviewHeaderContainer}>
-            <img
-              src="/ratingscore_background.png"
-              alt="Score"
-              width={75.38}
-              height={59}
-            />
-            <div>8.4</div>
-            <div>
-              <div>Excellent</div>
-              <div>6879 Reviews</div>
-            </div>
-          </div>
-
-          <div className={styles.ratingContainer}>
-            <div>Housekeeping</div>
-            <img
-              src="/review_rating.png"
-              alt="Star"
-              width={95.96}
-              height={19.19}
-            />
-          </div>
-          <div className={styles.ratingContainer}>
-            <div>Food</div>
-            <img
-              src="/review_rating.png"
-              alt="Star"
-              width={95.96}
-              height={19.19}
-            />
-          </div>
-          <div className={styles.ratingContainer}>
-            <div>Service</div>
-            <img
-              src="/review_rating.png"
-              alt="Star"
-              width={95.96}
-              height={19.19}
-            />
-          </div>
-          <div className={styles.ratingContainer}>
-            <div>Staff</div>
-            <img
-              src="/review_rating.png"
-              alt="Star"
-              width={95.96}
-              height={19.19}
-            />
-          </div>
-          <div>Services</div>
-
-          <div className={styles.reviewIconContainer}>
-            <div className={styles.iconWrapper}>
-              <img
-                src="/review_parking.png"
-                alt="Parking"
-                width={27.71}
-                height={19.61}
-              />
-            </div>
-            <div className={styles.iconWrapper}>
-              <img
-                src="/review_bath.png"
-                alt="Bath"
-                width={29.7}
-                height={26.98}
-              />
-            </div>
-            <div className={styles.iconWrapper}>
-              <img
-                src="/review_bar.png"
-                alt="Bar"
-                width={20.6}
-                height={27.25}
-              />
-            </div>
-            <div className={styles.iconWrapper}>
-              <img
-                src="/review_wifi.png"
-                alt="Wifi"
-                width={22.19}
-                height={16.33}
-              />
-            </div>
-            <div className={styles.iconWrapper}>
-              <img
-                src="/review_gym.png"
-                alt="Gym"
-                width={28.07}
-                height={15.78}
-              />
-            </div>
-          </div>
-        </div>
-
-        <div className={styles.hotelInfoContainer}>
-          <div>
-            <div>{hotelData.length > 0 && hotelData[0].hotel_name}</div>
-            <div>{hotelData.length > 0 && hotelData[0].hotel_location}</div>
-          </div>
-
-          <div className={styles.hotelPriceBox}>
-            Price Starting from 1,000 BAHT
-          </div>
-        </div>
-
-        <div className={styles.hotelTypeCardContainer}>
-          {hotelData.length > 0 &&
-            hotelData[0].hotel_room_types.map((room, index) => (
-              <div key={index} className={styles.roomTypeContainer}>
+        <div className={styles.contentContainer}>
+          <div className={styles.contentLeft}>
+            <div className={styles.hotelInfoContainer}>
+              <div className={styles.hotelInfoImgContainer}>
                 <img
-                  src="/roomtype.png"
-                  alt={room.room_name}
-                  width={174}
-                  height={145}
+                  src="/explore1.png"
+                  alt={"Explore"}
+                  width={680}
+                  height={448}
                 />
-                <div className={styles.roomInfoContainer}>
-                  <div>{room.room_name}</div>
-                  <div>{room.room_price} BAHT/night</div>
-                  <button
-                    onClick={() => handleBookNow(room.room_name)}
-                    className={styles.bookNowButton}
-                  >
-                    Book Now
-                  </button>
+                <div>
+                  <img
+                    src="/explore2.png"
+                    alt={"Explore"}
+                    width={408}
+                    height={285}
+                  />
+                  <div>
+                    <img
+                      src="/explore3.png"
+                      alt={"Explore"}
+                      width={199}
+                      height={151}
+                    />
+                    <img
+                      src="/explore4.png"
+                      alt={"Explore"}
+                      width={197}
+                      height={151}
+                    />
+                  </div>
                 </div>
               </div>
-            ))}
+              <div className={styles.hotelInfo}>
+                <div className={styles.hotelInfoText}>
+                  <div className={styles.hotelName}>
+                    {hotelData.length > 0 && hotelData[0].hotel_name}
+                  </div>
+                  <div className={styles.hotelLocation}>
+                    {hotelData.length > 0 && hotelData[0].hotel_location}
+                  </div>
+                </div>
+
+                <div className={styles.hotelPriceBox}>
+                  Price Starting from 1,000 BAHT
+                </div>
+              </div>
+            </div>
+
+            {hotelData.length > 0 && (
+              <div className={styles.roomCardsContainer}>
+                {hotelData[0].hotel_room_types.map((room, index) => (
+                  <div key={index} className={styles.roomTypeContainer}>
+                    <img src="/roomtype.png" alt={room.room_name} />
+                    <div className={styles.roomInfoContainer}>
+                      <div className={styles.roomNameText}>{room.room_name}</div>
+                      <div className={styles.roomPriceText}>{room.room_price} BAHT/night</div>
+                    </div>
+                    <button
+                      onClick={() => handleBookNow(room.room_name)}
+                      className={styles.bookNowButton}
+                    >
+                      Book Now
+                    </button>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <div className={styles.contentRight}>
+            <div className={styles.reviewContainer}>
+              <div className={styles.reviewHeaderContainer}>
+                <div className={styles.ratingBox}>
+                  <img
+                    src="/ratingscore_background.png"
+                    alt="Score"
+                    width={75.38}
+                    height={59}
+                  />
+                  <div className={styles.ratingText}>8.4</div>
+                </div>
+
+                <div className={styles.reviewTextContainer}>
+                  <div className={styles.excellentText}>Excellent</div>
+                  <div className={styles.reviewText}>6879 Reviews</div>
+                </div>
+              </div>
+
+              <div className={styles.ratingContainer}>
+                <div className={styles.ratingCategoryText}>Housekeeping</div>
+                <img
+                  src="/review_rating.png"
+                  alt="Star"
+                  width={95.96}
+                  height={19.19}
+                  className={styles.ratingStarImg}
+                />
+              </div>
+              <div className={styles.ratingContainer}>
+                <div className={styles.ratingCategoryText}>Food</div>
+                <img
+                  src="/review_rating.png"
+                  alt="Star"
+                  width={95.96}
+                  height={19.19}
+                  className={styles.ratingStarImg}
+                />
+              </div>
+              <div className={styles.ratingContainer}>
+                <div className={styles.ratingCategoryText}>Service</div>
+                <img
+                  src="/review_rating.png"
+                  alt="Star"
+                  width={95.96}
+                  height={19.19}
+                  className={styles.ratingStarImg}
+                />
+              </div>
+              <div className={styles.ratingContainer}>
+                <div>Staff</div>
+                <img
+                  src="/review_rating.png"
+                  alt="Star"
+                  width={95.96}
+                  height={19.19}
+                />
+              </div>
+
+              <div className={styles.servicesText}>Services</div>
+
+              <div className={styles.reviewIconContainer}>
+                <div className={styles.iconWrapper}>
+                  <img
+                    src="/review_parking.png"
+                    alt="Parking"
+                    width={27.71}
+                    height={19.61}
+                  />
+                </div>
+                <div className={styles.iconWrapper}>
+                  <img
+                    src="/review_bath.png"
+                    alt="Bath"
+                    width={29.7}
+                    height={26.98}
+                  />
+                </div>
+                <div className={styles.iconWrapper}>
+                  <img
+                    src="/review_bar.png"
+                    alt="Bar"
+                    width={20.6}
+                    height={27.25}
+                  />
+                </div>
+                <div className={styles.iconWrapper}>
+                  <img
+                    src="/review_wifi.png"
+                    alt="Wifi"
+                    width={22.19}
+                    height={16.33}
+                  />
+                </div>
+                <div className={styles.iconWrapper}>
+                  <img
+                    src="/review_gym.png"
+                    alt="Gym"
+                    width={28.07}
+                    height={15.78}
+                  />
+                </div>
+              </div>
+              <div className={styles.demandContainer}>
+                <img src="/highdemand.png" alt="Star" width={40} height={40} />
+                <div className={styles.demandText}>
+                  This property is in highly demand today.
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>
