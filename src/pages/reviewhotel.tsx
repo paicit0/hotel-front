@@ -308,18 +308,20 @@ export default function ReviewHotel() {
               </div>
             </div>
             <div className={styles.paymentPolicy}>
-              <div className={styles.cancelText}>Cancellation Charges</div>
-              <div className={styles.refundText}>Non Refundable</div>
-              <div className={styles.ruleText}>
-                Penalty may be charged by the airline & by MMT
+              <div className={styles.paymentPolicyTextContainer}>
+                <div className={styles.cancelText}>Cancellation Charges</div>
+                <div className={styles.refundText}>Non Refundable</div>
+                <div className={styles.ruleText}>
+                  Penalty may be charged by the airline & by MMT
+                </div>
+                <div className={styles.ruleText}>
+                  based on how close to departure date you cancel.
+                </div>
+                <div className={styles.viewPolicyText}>
+                  View fare rules to know more.
+                </div>
+                <button className={styles.viewPolicyButton}>VIEW POLICY</button>
               </div>
-              <div className={styles.ruleText}>
-                based on how close to departure date you cancel.
-              </div>
-              <div className={styles.viewPolicyText}>
-                View fare rules to know more.
-              </div>
-              <button className={styles.viewPolicyButton}>VIEW POLICY</button>
             </div>
           </div>
         </div>
